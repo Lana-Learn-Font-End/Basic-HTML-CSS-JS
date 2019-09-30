@@ -1,0 +1,62 @@
+textarea,
+input {
+    width: 100%;
+    background: pink;
+    border: solid 1px red;
+    border-radius: 5px;
+}
+
+table {
+    border-spacing: 10px;
+    width: 800px;
+    height: 450px;
+}
+
+td {
+    vertical-align: top;
+}
+
+td:first-child {
+    width: 20%;
+}
+
+.form {
+    display: inline-block;
+    border: solid 1px blue;
+    box-shadow: 2px 2px darkred;
+    padding: 15px 15px 0 15px;
+    border-radius: 5px;
+    background: darkseagreen;
+    overflow: hidden;
+}
+
+label {
+    font-weight: bold;
+}
+
+span {
+    color: red;
+}
+
+button {
+    width: 35%;
+    background: dodgerblue;
+    border-radius: 5px;
+    height: 35px;
+}
+
+input {
+    height: 30px;
+}
+
+form {
+    padding-top: 20px;
+}
+
+p {
+    text-shadow: 3px 3px darkolivegreen;
+    color: #938200;
+    font-weight: bold;
+    font-size: 35px;
+    margin: 10px 0 0;
+}
