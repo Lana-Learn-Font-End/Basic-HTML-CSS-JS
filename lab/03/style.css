@@ -1,0 +1,31 @@
+.card {
+	border: solid 2px blue;
+	display: inline-flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	border-top-right-radius: 30px;
+	border-top-left-radius: 30px;
+	margin: 15px;
+}
+
+.card-rounded-img {
+	border: solid 3px lightgray;
+	padding: 18px;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	margin: 15px;
+}
+
+.card-text {
+	width: 500px;
+	height: 230px;
+	overflow: hidden;
+	margin: 15px;
+}
+
+.card-header {
+	margin: 3px;
+	font-weight: bold;
+	color: blue;
+}
