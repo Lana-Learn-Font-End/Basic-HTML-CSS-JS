@@ -1,0 +1,68 @@
+.form-field {
+    display: flex;
+    margin: 10px;
+    height: 35px;
+}
+
+.form-field label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    font-weight: bold;
+
+    width: 20%;
+    margin-right: 2em;
+}
+
+.textarea-form-field textarea,
+.form-field input, select {
+    flex-grow: 1;
+    background: white;
+}
+
+.form-field button {
+    width: 100px;
+    color: white;
+    background: deepskyblue;
+    border: 0;
+    box-shadow: 1px 1px black;
+}
+
+.textarea-form-field {
+    display: flex;
+    margin: 10px;
+}
+
+.textarea-form-field label {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: right;
+    font-weight: bold;
+
+    width: 20%;
+    margin-right: 2em;
+}
+
+.form-container {
+    display: inline-flex;
+    flex-direction: column;
+    background: lightblue;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    margin: 20px 50px 20px 15px;
+}
+
+p {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
