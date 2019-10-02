@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact us</title>
-    <link type="text/css" rel="stylesheet" href="style.css">
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <!--this one use flex box-->
 <body>
@@ -14,22 +14,22 @@
             <p style="font-size: 14px">Please fill all texts in the fields.</p>
         </div>
     </div>
-    <form method="post" action="">
+    <form action="" method="post">
         <div class="form-field">
             <label for="name"> Your Name: </label>
-            <input type="text" placeholder="Your Full Name" id="name">
+            <input id="name" placeholder="Your Full Name" type="text">
         </div>
         <div class="form-field">
             <label for="email"> Your Email: </label>
-            <input type="text" placeholder="Your Email Address" id="email">
+            <input id="email" placeholder="Your Email Address" type="text">
         </div>
         <div class="textarea-form-field">
             <label for="message"> Your Email: </label>
-            <textarea placeholder="Your Message To Us" id="message" rows="8"></textarea>
+            <textarea id="message" placeholder="Your Message To Us" rows="8"></textarea>
         </div>
         <div class="form-field">
             <label for="subject"> Subject: </label>
-            <select name="subject" id="subject">
+            <select id="subject" name="subject">
                 <option value="1">Job Inquiry</option>
                 <option value="2">Not Job Inquiry</option>
             </select>
