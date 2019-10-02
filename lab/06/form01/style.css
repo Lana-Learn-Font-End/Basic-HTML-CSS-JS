@@ -19,12 +19,13 @@
 .form-field input, select {
     flex-grow: 1;
     background: white;
+    text-indent: 5px;
 }
 
 .form-field button {
     width: 100px;
     color: white;
-    background: deepskyblue;
+    background: #50b8e7;
     border: 0;
     box-shadow: 1px 1px black;
 }
@@ -46,9 +47,10 @@
 }
 
 .form-container {
+    color: #3e3e3d;
     display: inline-flex;
     flex-direction: column;
-    background: lightblue;
+    background: #dcf0fa;
 }
 
 form {
@@ -65,4 +67,10 @@ p {
 body {
     display: flex;
     justify-content: center;
+    font-size: 15px;
+}
+
+textarea {
+    padding: 6px 0 0;
+    margin: 0;
 }

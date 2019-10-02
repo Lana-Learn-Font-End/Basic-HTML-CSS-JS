@@ -3,21 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact Us Black</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
+<!--this one use grid system-->
 <body>
-<form action="" method="post">
-    <div class="container">
-        <label for=""></label>
-        <input type="text">
-        <label for=""></label>
-        <input type="text">
-        <label for=""></label>
-        <input type="text">
-        <label for=""></label>
-        <input type="text">
-        <label for=""></label>
-        <input type="text">
+<div class="content">
+    <div>
+        <div class="form-header">
+            <p style="font-size: 32px">Contact Form</p>
+            <p style="font-size: 13px">Please fill all texts in the field</p>
+        </div>
     </div>
-</form>
+    <form action="" method="post">
+        <div class="form-field">
+            <label for="name">Your Name:</label>
+            <input id="name" placeholder="Enter your name" type="text">
+        </div>
+        <div class="form-field">
+            <label for="email">Your Email:</label>
+            <input id="email" placeholder="Enter your email" type="text">
+        </div>
+        <div class="form-field">
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Message to us" rows="8"></textarea>
+        </div>
+        <div class="form-field">
+            <label for="subject">Subject:</label>
+            <select id="subject">
+                <option value="1">Job Inquiry</option>
+                <option value="2">Not Job Inquiry</option>
+            </select>
+        </div>
+        <div class="form-field">
+            <button>Send</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>
