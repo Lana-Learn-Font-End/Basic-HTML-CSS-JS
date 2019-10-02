@@ -1,0 +1,4 @@
+.container {
+    grid-template-columns: 30px auto;
+    grid-template-rows: 30px 30px 30px 30px;
+}
