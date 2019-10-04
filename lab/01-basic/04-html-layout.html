@@ -10,26 +10,59 @@
             text-align: center;
         }
 
-        nav a {
-            margin: 20px;
+        nav {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav ul {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            list-style: none; /* remove bullet indent */
+        }
+
+        nav ul li {
             font-size: 20px;
+            float: left;
+            padding: 2px 20px;
+            border-left: 1px solid;
+        }
+
+        nav ul li:last-child {
+            border-right: 1px solid;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        nav ul li:hover {
+            background: deeppink;
+        }
+
+        nav ul li:hover a {
+            color: white;
         }
     </style>
 </head>
 <body>
-<header style="height: 100px">
+<header style="height: 100px; background: skyblue">
     <h1>This is header of page</h1>
 </header>
-<nav>
-    <a href="">This</a> |
-    <a href="">is</a> |
-    <a href="">nav</a> |
-    <a href="">bar</a> |
-    <a href="">of</a> |
-    <a href="">page</a> |
+<nav style="display: flex; justify-content: center;">
+    <ul>
+        <li><a href="">This</a></li>
+        <li><a href="">is</a></li>
+        <li><a href="">nav</a></li>
+        <li><a href="">bar</a></li>
+        <li><a href="">of</a></li>
+        <li><a href="">page</a></li>
+    </ul>
 </nav>
 <div style="display: flex">
-    <section style="height: 500px; width: 50%">
+    <section style="width: 50%">
         <h2> This is section with article</h2>
         <article>
             <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, quasi.</h4>
@@ -43,9 +76,12 @@
                 quisquam rerum voluptatum!
             </p>
         </article>
+        <br>
+        <img alt="pic" src="https://www.w3schools.com/w3css/img_lights.jpg"
+             style="width: 300px; height: 185px; border-radius: 10px">
     </section>
-    <section style="height: 500px; flex-grow: 1">
-        <h2> This is section with video, audio, bla bla</h2>
+    <section style="flex-grow: 1">
+        <h2> This is section with video, audio, canvas, bla bla</h2>
         <video style="display: block; margin: 10px auto" controls="controls"
                src="https://youtu.be/qZjYggYSzc8">
         </video>
@@ -54,11 +90,10 @@
                src="https://data.chiasenhac.com/downloads/2037/5/2036090-864edeb8/128/Memories%20-%20Maroon%205.mp3">
         </audio>
         <embed style="display: block; margin: 10px auto" src="https://youtu.be/qZjYggYSzc8" type="video/mp4">
-        <a href="https://lana-personal-projects.github.io/Space-shooter-game/">Canvasssssssssss</a>
-        <!--<canvas style="width: 300px; height: 185px"></canvas>-->
+        <canvas style="width: 300px; height: 185px; border: 1px solid black"></canvas>
     </section>
 </div>
-<footer style="height: 100px">
+<footer style="height: 100px; background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRCRxXT6mncRPOTG-uDn58UcnuF4r0Ho00VpODqVg00hYDO_kKx')">
     <h1>This is footer of page</h1>
 </footer>
 </body>
