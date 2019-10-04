@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Special</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        td, th, table {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr style="background: blue">
+        <th colspan="2">Full name</th>
+        <th rowspan="2">Age</th>
+    </tr>
+    <tr style="background: blue">
+        <th>Firstname</th>
+        <th>Lastname</th>
+    </tr>
+    <tr>
+        <td>Toan</td>
+        <td>Nguyen</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>Nguyen</td>
+        <td>Toan</td>
+        <td>10</td>
+    </tr>
+</table>
+</body>
+</html>
