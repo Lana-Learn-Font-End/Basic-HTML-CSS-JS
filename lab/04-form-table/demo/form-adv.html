@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        input, select {
+            margin: 5px;
+        }
+
+        textarea {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <label>Họ và tên: <input name="name" placeholder="Họ tên" type="text"></label><br>
+    <label>Email: <input name="email" placeholder="Email" type="email"></label><br>
+    <label>Điện thoại: <input name="phone" placeholder="Điện thoại" type="text"></label><br>
+    <label>Địa chỉ: <input name="address" placeholder="Địa chỉ" type="text"></label><br>
+    <label>Giới tính:
+        <input checked id="male" name="gender" type="radio"><label for="male">Nam</label>
+        <input id="female" name="gender" type="radio"><label for="female">Nữ</label>
+    </label>
+    <br>
+    <label>Sở thích:
+        <input checked id="read" name="act" type="checkbox"><label for="read">Đọc sách</label>
+        <input id="travel" name="act" type="checkbox"><label for="travel">Du lịch</label>
+    </label>
+    <br>
+    <label>Khóa học:
+        <select name="subject">
+            <option value="php">Khóa học lập trình web PHP & MysQL</option>
+        </select>
+    </label>
+    <br>
+    <label>Giới thiệu bản thân: <br>
+        <textarea cols="30" name="about" placeholder="Giới thiệu bản thân" rows="10"></textarea>
+    </label>
+    <br>
+    <button type="submit">Đăng ký</button>
+    <button type="reset">Nhập lại</button>
+</form>
+</body>
+</html>
