@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+</head>
+<body>
+<script src="io-lib.js"></script>
+<script>
+    "use strict";
+
+    while (true) {
+        const number = promptNumber();
+        if (isPrime(number)) {
+            alert(`${number} is prime`);
+        } else {
+            alert(`${number} is not prime`)
+        }
+    }
+
+    function promptNumber(defaultValue = "") {
+        while (true) {
+            const input = prompt("Enter a number", defaultValue);
+            const number = Number(input);
+            if (isNaN(number)) {
+                prompt(`${number} is not a number`, defaultValue);
+            } else {
+                return number;
+            }
+        }
+    }
+
+    function isPrime(number) {
+        if (number >= 2) {
+            const maxPossible = Math.round(Math.sqrt(number));
+            for (let i = 2; i <= maxPossible; i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

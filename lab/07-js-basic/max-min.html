@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Max min</title>
+</head>
+<body>
+<script>
+    "use strict";
+    while (true) {
+        const input = prompt("Enter numbers: 1, 2, 3,...");
+        const numbers = input.split(",")
+            .filter(value => isNumber(value))
+            .map(value => Number(value));
+        if (numbers.length === 0) {
+            alert("Empty array!");
+        } else {
+            const maxMin = getMaxMin(numbers);
+            alert(`max: ${maxMin.max}, min: ${maxMin.min}`);
+        }
+    }
+
+    function isNumber(value) {
+        if (value) {
+            return !isNaN(Number(value));
+        }
+        return false;
+    }
+
+    function getMaxMin(numbers) {
+        let max, min;
+        for (let i = 0; i < numbers.length; i++) {
+            if (i === 0) {
+                max = numbers[i];
+                min = numbers[i];
+            }
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+            if (numbers[i] < min) {
+                min = numbers[i];
+            }
+        }
+        return {max, min}
+    }
+</script>
+</body>
+</html>
