@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nav-bar</title>
+    <style>
+        nav, div {
+            border: 1px solid black;
+            margin: 5px;
+        }
+
+        nav {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none; /* remove bullet indent */
+        }
+
+        nav ul li {
+            font-size: 20px;
+            float: left;
+            padding: 2px 20px;
+            border-left: 1px solid;
+        }
+
+        nav ul li:last-child {
+            border-right: 1px solid;
+        }
+
+        nav ul li:first-child {
+            border-left: none;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        nav ul li:hover {
+            background: deeppink;
+        }
+
+        nav ul li:hover a {
+            color: white;
+        }
+
+        nav ul li>ul {
+            visibility: hidden;
+            position: absolute;
+        }
+        nav ul li:hover ul {
+            visibility: visible;
+            background: black;
+        }
+        nav ul li:hover ul li {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 500px; margin: 0 auto">
+    <nav>
+        <ul>
+            <li><a href="">This</a>
+                <ul>
+                    <li>Nested</li>
+                    <li>List</li>
+                </ul>
+            </li>
+            <li><a href="">is</a></li>
+            <li><a href="">nav</a></li>
+            <li><a href="">bar</a></li>
+            <li><a href="">of</a></li>
+            <li><a href="">page</a></li>
+        </ul>
+    </nav>
+    <div style="padding: 20px">
+        <h2>content of page</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea exercitationem ipsam itaque nisi obcaecati,
+            pariatur praesentium quasi. Ad adipisci at corporis debitis delectus minus, quasi qui quisquam, repellat
+            saepe tempore?</p>
+    </div>
+</div>
+</body>
+</html>
