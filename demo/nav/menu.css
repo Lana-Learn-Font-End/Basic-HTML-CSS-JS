@@ -1,0 +1,48 @@
+#menu {
+    width: 960px;
+    margin: 0 auto;
+    border: solid 1px red;
+    height: 35px;
+    background: #293d3d;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul li {
+    float: left;
+    border-right: solid 1px #fff;
+    position: relative;
+}
+
+#menu ul li a {
+    display: block;
+    padding: 8px 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.selected,
+#menu ul li a:hover {
+    background: red;
+}
+
+/*menu cấp 2*/
+#menu ul li > ul { /*tương tác đến thẻ UL là con của LI*/
+    position: absolute;
+    background: #333;
+    width: 200px;
+    visibility: hidden; /*thuộc tính ẩn đối tượng*/
+}
+
+#menu ul li > ul li { /*thương tác đến li con của UL- UL là con của Li cấp cha*/
+    width: 200px;
+    border-bottom: solid 1px #fff;
+}
+
+#menu ul li:hover > ul { /*di di chuột vào li cấp cha thì ul cấp con nổi lên(hiển thị)*/
+    visibility: visible;
+}
