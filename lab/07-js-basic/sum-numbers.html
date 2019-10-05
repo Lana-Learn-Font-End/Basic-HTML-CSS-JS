@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum bumber</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    let sum = 0;
+    alert("Enter numbers, 0 to exit");
+    while (true) {
+        const number = promptNumber(0, 100);
+        if (number === 0) {
+            break;
+        }
+        sum+= number;
+    }
+    alert(`Total: ${sum}`);
+
+    function promptNumber(min, max) {
+        while (true) {
+            const input = prompt(`Enter a number from ${min} to ${max}`, "0");
+            const number = Number(input);
+            if (isNaN(number)) {
+                alert(`${number} is not a number`);
+            } else {
+                if (number >= min && number <= max) {
+                    return number;
+                }
+                alert(`${number} is not in range [${min},${max}]`);
+            }
+        }
+    }
+</script>
+</body>
+</html>
