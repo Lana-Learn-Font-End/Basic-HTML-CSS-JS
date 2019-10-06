@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JS</title>
+    <title>Is Prime</title>
 </head>
 <body>
-<script src="io-lib.js"></script>
+<script src="num-lib.js"></script>
 <script>
-    "use strict";
-
     while (true) {
         const number = promptNumber();
         if (isPrime(number)) {
@@ -21,12 +19,10 @@
     function promptNumber(defaultValue = "") {
         while (true) {
             const input = prompt("Enter a number", defaultValue);
-            const number = Number(input);
-            if (isNaN(number)) {
-                alert(`${number} is not a number`);
-            } else {
-                return number;
-            }
+            if (isNumber(input))
+                return Number(input);
+            else
+                alert(`"${input}" is not a number`);
         }
     }
 

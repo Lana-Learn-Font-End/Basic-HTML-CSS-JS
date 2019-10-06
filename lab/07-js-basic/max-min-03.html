@@ -5,10 +5,11 @@
     <title>Max min</title>
 </head>
 <body>
+<script src="num-lib.js"></script>
 <script>
-    "use strict";
     while (true) {
-        const input = prompt("Enter numbers: 1, 2, 3,...");
+        const input = prompt("Enter numbers (e.g. 1, 0, 3,...):");
+        // get all number separate by ","
         const numbers = input.split(",")
             .filter(value => isNumber(value))
             .map(value => Number(value));
@@ -20,13 +21,6 @@
         }
     }
 
-    function isNumber(value) {
-        if (value) {
-            return !isNaN(Number(value));
-        }
-        return false;
-    }
-
     function getMaxMin(numbers) {
         let max, min;
         for (let i = 0; i < numbers.length; i++) {
@@ -34,12 +28,9 @@
                 max = numbers[i];
                 min = numbers[i];
             }
-            if (numbers[i] > max) {
-                max = numbers[i];
-            }
-            if (numbers[i] < min) {
-                min = numbers[i];
-            }
+
+            if (numbers[i] > max) max = numbers[i];
+            if (numbers[i] < min) min = numbers[i];
         }
         return {max, min}
     }
