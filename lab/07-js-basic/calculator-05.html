@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<script src="num-lib.js"></script>
+<script>
+    while (true) {
+        const operand1 = promptNumber("Enter operand 1");
+        const operator = promptOperator();
+        const operand2 = promptNumber("Enter operand 2");
+
+        const result = calculate({operand1, operand2, operator});
+        alert(`${operand1} ${operator} ${operand2} = ${result}`);
+    }
+
+    function promptOperator() {
+        const OPERATORS = ["+", "-", "x", ":"];
+        const operatorString = OPERATORS.join(", ");
+        while (true) {
+            const input = prompt(`Enter operator (${operatorString})`).trim();
+            if (OPERATORS.includes(input))
+                return input;
+            else
+                alert(`"${input}" is not a valid operator`);
+        }
+    }
+
+    function calculate({operand1, operand2, operator} = {}) {
+        if (isNumber(operand1) && isNumber(operand2))
+            switch (operator) {
+                case "+":
+                    return operand1 + operand2;
+                case "-":
+                    return operand1 - operand2;
+                case "x":
+                    return operand1 * operand2;
+                case ":":
+                    // if operand2 is 0 then the result will be Infinity
+                    return operand1 / operand2;
+            }
+        throw TypeError("Invalid argument");
+    }
+</script>
+</body>
+</html>
