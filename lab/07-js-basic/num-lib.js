@@ -6,3 +6,13 @@ function isNumber(value) {
     }
     return false;
 }
+
+function promptNumber(message) {
+    while (true) {
+        const input = prompt(message);
+        if (isNumber(input))
+            return Number(input);
+        else
+            alert(`"${input}" is not a number`);
+    }
+}

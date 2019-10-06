@@ -8,21 +8,11 @@
 <script src="num-lib.js"></script>
 <script>
     while (true) {
-        const number = promptNumber();
+        const number = promptNumber("Enter a number");
         if (isPrime(number))
             alert(`${number} is prime`);
         else
             alert(`${number} is not prime`);
-    }
-
-    function promptNumber(defaultValue = "") {
-        while (true) {
-            const input = prompt("Enter a number", defaultValue);
-            if (isNumber(input))
-                return Number(input);
-            else
-                alert(`"${input}" is not a number`);
-        }
     }
 
     function isPrime(number) {
