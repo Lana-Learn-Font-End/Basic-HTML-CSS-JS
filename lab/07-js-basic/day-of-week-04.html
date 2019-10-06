@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date of Week</title>
+</head>
+<body>
+<script src="num-lib.js"></script>
+<script>
+    while (true) {
+        const date = promptNumber("Enter a date (1-8)");
+        const dateInVietnamese = getDateOfWeekInVn(date);
+        if (dateInVietnamese)
+            alert(dateInVietnamese);
+        else
+            alert(`${date} is not a valid date of week`);
+    }
+
+    function getDateOfWeekInVn(date) {
+        const sunday = "Chủ nhật";
+        const dateOfWeek = {
+            1: sunday,
+            2: "Thứ hai",
+            3: "Thứ ba",
+            4: "Thứ tư",
+            5: "Thứ năm",
+            6: "Thứ sáu",
+            7: "Thứ bảy",
+            8: sunday,
+        };
+        return dateOfWeek[date];
+    }
+</script>
+</body>
+</html>
