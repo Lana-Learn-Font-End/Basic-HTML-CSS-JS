@@ -9,11 +9,10 @@
 <script>
     while (true) {
         const number = promptNumber();
-        if (isPrime(number)) {
+        if (isPrime(number))
             alert(`${number} is prime`);
-        } else {
-            alert(`${number} is not prime`)
-        }
+        else
+            alert(`${number} is not prime`);
     }
 
     function promptNumber(defaultValue = "") {
