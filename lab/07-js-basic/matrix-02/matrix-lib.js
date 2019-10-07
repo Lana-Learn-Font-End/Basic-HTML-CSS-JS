@@ -10,7 +10,7 @@ class Matrix {
         for (let row = 0; row < this.rows; row++) {
             this.data[row] = [];
             for (let col = 0; col < this.cols; col++) {
-                this.data[row][col] = 0;
+                this.data[row][col] = value;
             }
         }
     }
@@ -57,7 +57,7 @@ function sumEven(matrix) {
 function getMultipleOf3And5(matrix) {
     const multipleOf3And5 = [];
     matrix.forEach(value => {
-        if (isMultipleOf3And5(value)) {
+        if (value !== 0 && isMultipleOf3And5(value)) {
             multipleOf3And5.push(value);
         }
     });
