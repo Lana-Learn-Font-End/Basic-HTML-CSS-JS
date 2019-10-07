@@ -1,8 +1,8 @@
 textarea,
 input {
     width: 100%;
-    background: pink;
-    border: solid 1px red;
+    background: #ffe1e6;
+    border: solid 2px #e52935;
     border-radius: 5px;
 }
 
@@ -23,10 +23,10 @@ td:first-child {
 .form {
     display: inline-block;
     border: solid 1px blue;
-    box-shadow: 2px 2px darkred;
+    box-shadow: 2px 3px darkred;
     padding: 15px 15px 0 15px;
     border-radius: 5px;
-    background: darkseagreen;
+    background: #a4d1a2;
     overflow: hidden;
 }
 
@@ -39,8 +39,8 @@ span {
 }
 
 button {
-    width: 35%;
-    background: dodgerblue;
+    width: 28%;
+    background: #0d47a1;
     border-radius: 5px;
     height: 35px;
 }
