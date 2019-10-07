@@ -7,7 +7,6 @@ body {
 .content {
     min-width: 600px;
     max-width: 100%;
-    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,6 +16,11 @@ body {
 
 .size {
     margin: 20px;
+}
+
+#table-container {
+    overflow: auto;
+    max-width: 100%;
 }
 
 #table-container input {
