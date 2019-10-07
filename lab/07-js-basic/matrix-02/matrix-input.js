@@ -4,10 +4,9 @@ Render input table that bind directly into matrix.
 This input table only accept number value, if input is not-a-number,
 then the cell that its binding to 's value will be 0.
 
-Boundary cells have blue color.
-Not-a-number cells have red color.
+Boundary cells have #1565C0 color.
+Not-a-number cells have #C62828 color.
 */
-
 function getInputTable(matrix) {
     const table = document.createElement("TABLE");
     table.id = "id";
@@ -32,7 +31,7 @@ function setDefaultColor(row, col, matrix, inputEl) {
         row === matrix.rows - 1 ||
         col === matrix.cols - 1;
     if (isBoundary)
-        inputEl.style.color = "blue";
+        inputEl.style.color = "#1565C0";
     else
         inputEl.style.color = "black";
 }
@@ -43,13 +42,13 @@ function bind(row, col, matrix, inputEl) {
         matrix.data[row][col] = Number(inputEl.value);
     } else {
         matrix.data[row][col] = 0;
-        inputEl.style.color = "red";
+        inputEl.style.color = "#C62828";
     }
 }
 
 function isValidSizeInput(str) {
     // this regex test input format "number x number"
-    return str.trim().match(/^([1-9]\d*\s*x\s*[1-9]\d*)/g);
+    return str.trim().match(/^([1-9]\d*\s*x\s*[1-9]\d*)$/g);
 }
 
 function extractSize(str) {
