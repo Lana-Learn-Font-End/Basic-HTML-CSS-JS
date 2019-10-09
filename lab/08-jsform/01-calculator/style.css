@@ -1,0 +1,24 @@
+.display {
+    width: 100%;
+    text-align: right;
+    border: none;
+    font-size: 20px;
+}
+
+.display:focus {
+    outline: none;
+}
+
+
+table {
+    border: 1px solid black;
+    width: 600px;
+    text-align: center;
+    padding: 10px;
+}
+
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+}

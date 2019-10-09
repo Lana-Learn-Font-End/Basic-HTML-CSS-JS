@@ -1,0 +1,136 @@
+header {
+    height: 70px;
+    background-color: #4F1A5E;
+    background-image: linear-gradient(#792B8E, #4F1A5E 50%);
+    border-bottom: 1px solid #4F1A5E;
+    padding: 5px 80px;
+    font-size: 14px;
+}
+
+.logo {
+    width: 200px;
+    margin: 20px 0;
+    float: left;
+}
+
+.login-form {
+    float: right;
+    display: inline-block;
+    width: 40%;
+}
+
+.login-form-control {
+    margin: 5px;
+    display: inline-block;
+    float: left;
+}
+
+.login-form-label {
+    display: block;
+    color: white;
+}
+
+.login-form-btn {
+    color: white;
+    background: #792B8E;
+    border: 1px solid #4F1A5E;
+    height: 21px;
+    margin-top: 18px;
+}
+
+.login-form-btn:hover {
+    background: blueviolet;
+}
+
+.login-form-small {
+    text-decoration: none;
+    color: grey;
+    display: block;
+    font-size: 12px;
+}
+
+.login-form-small:hover {
+    color: white;
+}
+
+.content {
+    clear: both;
+    padding: 0 80px;
+    overflow: hidden;
+    background: linear-gradient(white, #792B8E);
+}
+
+
+.sign-up-form {
+    width: 40%;
+    float: right;
+    align-self: flex-end;
+}
+
+.sign-up-form input {
+    margin: 6px;
+    border-radius: 2px;
+    border: 1px solid grey;
+    height: 30px;
+}
+
+.sign-up-form-header {
+    margin: 6px;
+    display: block;
+}
+
+.input-row {
+    display: flex;
+}
+
+.input-row input {
+    flex-grow: 1;
+}
+
+.input-col {
+    width: 50%;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.input-col select {
+    border-radius: 2px;
+    border: 1px solid grey;
+    height: 30px;
+    margin: 6px;
+    background: white;
+}
+
+.sign-up-form-link {
+    width: 40%;
+    display: inline-block;
+    padding-top: 5px;
+    font-size: 13px;
+}
+
+.check-row {
+    display: flex;
+    align-items: center;
+}
+
+.sign-up-form-text {
+    font-size: 13px;
+    margin: 6px;
+}
+
+.sign-up-btn {
+    font-weight: bold;
+    color: white;
+    margin: 15px 0 15px 6px;
+    background: linear-gradient(#79bc64, #578843);
+    border: 1px solid;
+    border-color: #3b6e22 #3b6e22 #2c5115;
+    width: 130px;
+    height: 32px;
+}
+
+.content-left{
+    float: left;
+    width: 40%;
+}
+

@@ -1,0 +1,23 @@
+.body {
+    margin: 0 auto;
+    width: 1200px;
+    box-shadow: 10px 10px 10px 5px grey;
+}
+
+input {
+    padding: 0;
+    text-indent: 5px;
+}
+
+* {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: gold;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}

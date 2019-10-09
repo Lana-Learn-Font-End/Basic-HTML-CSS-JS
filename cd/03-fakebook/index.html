@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fakebook</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="body">
+    <header>
+        <img src="img/logo.png" alt="logo" class="logo">
+        <form action="" class="login-form">
+                <div class="login-form-control">
+                    <label for="username" class="login-form-label">Email or phone number</label>
+                    <div>
+                        <input type="text" id="username" required>
+                    </div>
+                </div>
+                <div class="login-form-control">
+                    <label for="password" class="login-form-label">Password</label>
+                    <input type="password" id="password" required>
+                    <a href="" class="login-form-small">Quên mật khẩu ?</a>
+                </div>
+                <div class="login-form-control">
+                    <button type="submit" class="login-form-btn">Đăng nhập</button>
+                </div>
+        </form>
+    </header>
+    <section class="content">
+        <div class="content-left">
+            <div>
+                <h4>FakeBook giúp bạn kết nối và chia sẻ với mọi người trong cuộc sống của bạn.</h4>
+            </div>
+            <img src="img/world.png" alt="world">
+        </div>
+        <form action="" class="sign-up-form">
+            <div class="sign-up-form-header">
+                <h2>Đăng ký</h2>
+                <h4>Luôn miễn phí</h4>
+            </div>
+            <div class="input-row">
+                <input type="text" placeholder="Họ" required>
+                <input type="text" placeholder="Tên" required>
+            </div>
+            <div class="input-row">
+                <input type="text" placeholder="Email hoặc số điện thoại" required>
+            </div>
+            <div class="input-row">
+                <input type="password" placeholder="Mật khẩu mới" required>
+            </div>
+            <span class="sign-up-form-header">Ngày sinh</span>
+            <div style="display: flex">
+                <div class="input-col">
+                    <select name="">
+                        <option value="1">1</option>
+                    </select>
+                    <select name="">
+                        <option value="">Tháng 1</option>
+                    </select>
+                    <select name="">
+                        <option value="">1970</option>
+                    </select>
+                </div>
+                <div class="sign-up-form-link">
+                    <a href="">Tại sao tôi phải cung cấp ngày sinh của mình?</a>
+                </div>
+            </div>
+            <div class="check-row">
+                <input name="gender" id="male" type="radio" checked><label for="male">Nam</label>
+                <input name="gender" id="female" type="radio"><label for="female">Nữ</label>
+            </div>
+            <div class="sign-up-form-text">
+                Lorem ipsum dolor sit amet, <a href="">consectetur adipisicing elit</a>. Aliquam atque cum doloremque
+                eum, in incidunt
+                itaque laboriosam nesciunt nisi omnis recusandae sit ut vel veritatis voluptatum. Dolorem hic porro
+                quia.
+            </div>
+            <button class="sign-up-btn">Tạo Tài khoản</button>
+            <div class="sign-up-form-text" style="font-weight: bold">
+                <a href="">Lorem ipsum dolor</a> sit amet, consectetur adipisicing elit. Cupiditate debitis enim ipsum perspiciatis
+                quas quos?
+            </div>
+        </form>
+    </section>
+</div>
+</body>
+</html>
