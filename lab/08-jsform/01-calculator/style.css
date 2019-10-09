@@ -1,29 +1,53 @@
 .display {
     width: 100%;
     text-align: right;
-    border: none;
+    border: 1px solid black;
     font-size: 20px;
-    min-height: 25px;
+    padding: 3px;
 }
 
 .display:focus {
     outline: none;
 }
 
-
 table {
     border: 1px solid black;
-    width: 600px;
     text-align: center;
     padding: 10px;
 }
 
-
 td {
-    border: 1px solid black;
-    padding: 5px;
+    padding: 2px;
 }
 
-td:hover {
-    cursor: grabbing;
+td button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    margin: 0;
+}
+
+td button:hover {
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+button[name=btn-num] {
+    color: white;
+    background: black;
+}
+
+button[name=btn-operator] {
+    color: white;
+    background: #E65100;
+}
+
+button[name=btn-equal] {
+    color: white;
+    background: grey;
+    width: 100%;
 }
