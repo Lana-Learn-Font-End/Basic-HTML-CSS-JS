@@ -3,6 +3,7 @@
     text-align: right;
     border: none;
     font-size: 20px;
+    min-height: 25px;
 }
 
 .display:focus {
@@ -21,4 +22,8 @@ table {
 td {
     border: 1px solid black;
     padding: 5px;
+}
+
+td:hover {
+    cursor: grabbing;
 }
