@@ -38,7 +38,7 @@ function sumDiagonal(matrix) {
         }
         for (let i = 0; i < matrix.rows; i++) {
             const col = matrix.cols - i - 1;
-            subDiagonalSum = matrix.data[i][col];
+            subDiagonalSum += matrix.data[i][col];
         }
         return {mainDiagonalSum, subDiagonalSum}
     }
