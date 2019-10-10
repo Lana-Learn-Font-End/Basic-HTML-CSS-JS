@@ -78,15 +78,17 @@
     }
 
     function calculate() {
-        const diagonal = sumDiagonal(matrix);
-        const multipleOf3And5 = getMultipleOf3And5(matrix);
-        document.getElementById("main-diagonal").innerText =
-            diagonal ? diagonal.mainDiagonalSum.toString() : "not a square matrix";
-        document.getElementById("sub-diagonal").innerText =
-            diagonal ? diagonal.subDiagonalSum.toString() : "not a square matrix";
-        document.getElementById("sum-even").innerText = sumEven(matrix).toString();
-        document.getElementById("multiple-of-3-and-5").innerText =
-            multipleOf3And5.length !== 0 ? multipleOf3And5.join(", ") : "(none)";
+        if (matrix) {
+            const diagonal = sumDiagonal(matrix);
+            const multipleOf3And5 = getMultipleOf3And5(matrix);
+            document.getElementById("main-diagonal").innerText =
+                diagonal ? diagonal.mainDiagonalSum.toString() : "not a square matrix";
+            document.getElementById("sub-diagonal").innerText =
+                diagonal ? diagonal.subDiagonalSum.toString() : "not a square matrix";
+            document.getElementById("sum-even").innerText = sumEven(matrix).toString();
+            document.getElementById("multiple-of-3-and-5").innerText =
+                multipleOf3And5.length !== 0 ? multipleOf3And5.join(", ") : "(none)";
+        }
     }
 
     function switchError(isError) {

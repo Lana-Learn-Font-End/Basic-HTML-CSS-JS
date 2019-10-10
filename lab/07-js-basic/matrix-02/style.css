@@ -30,6 +30,6 @@ body {
 #error {
     text-align: center;
     font-size: 16px;
-    color: red;
+    color: #C62828;
     visibility: hidden;
 }
