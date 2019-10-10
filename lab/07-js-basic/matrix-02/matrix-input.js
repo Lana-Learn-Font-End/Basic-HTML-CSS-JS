@@ -15,8 +15,8 @@ function getInputTable(matrix) {
         for (let col = 0; col < matrix.cols; col++) {
             const input = document.createElement("INPUT");
             input.value = matrix.data[row][col];
-            input.onkeyup = () => bind(row, col, matrix, input);
-
+            input.addEventListener('keyup',() => bind(row, col, matrix, input));
+            input.setAttribute("name","matrix-table-input");
             setDefaultColor(row, col, matrix, input);
             tr.insertCell(col).appendChild(input);
         }

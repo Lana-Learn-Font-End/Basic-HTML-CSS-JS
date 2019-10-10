@@ -12,14 +12,14 @@
             Matrix: <input id="size" onkeyup="generate()" placeholder="rows x cols" style="text-align: center"
                            type="text" value="4 x 5">
         </label>
+
     </div>
-    <br>
+    <div id="error">
+        WHAT THE FUCK ARE U TRYING TO DO?
+    </div>
     <div id="table-container">
-        <div style="text-align: center; margin: 8px">
-            <button id="cal-button" onclick="calculate()">Calculate</button>
-        </div>
     </div>
-    <div class="result">
+    <div class="result" id="result">
         <hr style="width: 100%">
         <table style="margin: 0 auto">
             <tr>
@@ -51,10 +51,8 @@
     let table;
     let matrix;
     generate();
-    calculate();
 
     function generate() {
-        const button = document.getElementById("cal-button");
         const input = sizeInput.value;
         if (table) table.remove();
         if (isValidSizeInput(input)) {
@@ -62,32 +60,44 @@
             const size = extractSize(input);
             matrix = new Matrix(size.rows, size.cols);
             generateInputTable();
-            button.innerText = "Calculate";
+            switchError(false);
         } else {
             sizeInput.style.color = "#C62828";
             matrix = null;
-            button.innerText = "Yo, wtf ???";
+            switchError(true);
         }
+        calculate();
     }
 
     function generateInputTable() {
         table = getInputTable(matrix);
         document.getElementById("table-container").prepend(table);
+        document
+            .querySelectorAll("[name=matrix-table-input]")
+            .forEach(element => element.addEventListener("keyup", calculate));
     }
 
     function calculate() {
-        if (matrix) {
-            const diagonal = sumDiagonal(matrix);
-            const multipleOf3And5 = getMultipleOf3And5(matrix);
-            document.getElementById("main-diagonal").innerText =
-                diagonal ? diagonal.mainDiagonalSum.toString() : "not a square matrix";
-            document.getElementById("sub-diagonal").innerText =
-                diagonal ? diagonal.subDiagonalSum.toString() : "not a square matrix";
-            document.getElementById("sum-even").innerText = sumEven(matrix).toString();
-            document.getElementById("multiple-of-3-and-5").innerText =
-                multipleOf3And5.length !== 0 ? multipleOf3And5.join(", ") : "(none)";
+        const diagonal = sumDiagonal(matrix);
+        const multipleOf3And5 = getMultipleOf3And5(matrix);
+        document.getElementById("main-diagonal").innerText =
+            diagonal ? diagonal.mainDiagonalSum.toString() : "not a square matrix";
+        document.getElementById("sub-diagonal").innerText =
+            diagonal ? diagonal.subDiagonalSum.toString() : "not a square matrix";
+        document.getElementById("sum-even").innerText = sumEven(matrix).toString();
+        document.getElementById("multiple-of-3-and-5").innerText =
+            multipleOf3And5.length !== 0 ? multipleOf3And5.join(", ") : "(none)";
+    }
+
+    function switchError(isError) {
+        const error = document.getElementById("error");
+        const result = document.getElementById("result");
+        if (isError) {
+            error.style.visibility = "visible";
+            result.style.visibility = "hidden";
         } else {
-            alert("What the fuck do u want me to calculate, bro?")
+            error.style.visibility = "hidden";
+            result.style.visibility = "visible";
         }
     }
 </script>
