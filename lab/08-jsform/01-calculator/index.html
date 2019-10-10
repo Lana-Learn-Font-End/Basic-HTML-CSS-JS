@@ -6,39 +6,87 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<table>
-    <tr>
-        <td colspan="4" id="display" class="display"> 0 </td>
-    </tr>
-    <tr>
-        <td><button name="btn-num"> 1 </button></td>
-        <td><button name="btn-num"> 2 </button></td>
-        <td><button name="btn-num"> 3 </button></td>
-        <td><button name="btn-operator"> + </button></td>
-    </tr>
-    <tr>
-        <td><button name="btn-num"> 4 </button></td>
-        <td><button name="btn-num"> 5 </button></td>
-        <td><button name="btn-num"> 6 </button></td>
-        <td><button name="btn-operator"> - </button></td>
-    </tr>
-    <tr>
-        <td>
-            <button name="btn-num"> 7 </button>
-        </td>
-        <td>
-            <button name="btn-num"> 8 </button>
-        </td>
-        <td>
-            <button name="btn-num"> 9 </button>
-        </td>
-        <td><button name="btn-operator"> x </button></td>
-    </tr>
-    <tr>
-        <td><button name="btn-num"> 0 </button></td>
-        <td colspan="2"><button name="btn-equal"> = </button></td>
-        <td><button name="btn-operator"> : </button></td>
-    </tr>
-</table>
+<div class="container">
+    <table>
+        <tr>
+            <td colspan="4" id="display" class="display"> 0</td>
+        </tr>
+        <tr>
+            <td>
+                <button name="btn-num"> 1</button>
+            </td>
+            <td>
+                <button name="btn-num"> 2</button>
+            </td>
+            <td>
+                <button name="btn-num"> 3</button>
+            </td>
+            <td>
+                <button name="btn-operator"> +</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button name="btn-num"> 4</button>
+            </td>
+            <td>
+                <button name="btn-num"> 5</button>
+            </td>
+            <td>
+                <button name="btn-num"> 6</button>
+            </td>
+            <td>
+                <button name="btn-operator"> -</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button name="btn-num"> 7</button>
+            </td>
+            <td>
+                <button name="btn-num"> 8</button>
+            </td>
+            <td>
+                <button name="btn-num"> 9</button>
+            </td>
+            <td>
+                <button name="btn-operator"> x</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button name="btn-num"> 0</button>
+            </td>
+            <td colspan="2">
+                <button name="btn-equal"> =</button>
+            </td>
+            <td>
+                <button name="btn-operator"> :</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+    const output = document.getElementById("display");
+
+    document
+        .querySelectorAll("[name=btn-num]")
+        .forEach(e => e.addEventListener('click', onButtonNumClicked));
+    document
+        .querySelectorAll("[name=btn-operator]")
+        .forEach(e => e.addEventListener('click', onButtonOperatorClicked));
+
+    function onButtonNumClicked(event) {
+        const number = event.target.innerText.trim();
+        if (output.innerText === "0")
+            output.innerText = number;
+        else
+            output.innerText += number;
+    }
+
+    function onButtonOperatorClicked() {
+
+    }
+</script>
 </body>
 </html>
