@@ -55,10 +55,13 @@
         </tr>
         <tr>
             <td>
+                <button name="btn-clear"> AC</button>
+            </td>
+            <td>
                 <button name="btn-num"> 0</button>
             </td>
-            <td colspan="2">
-                <button name="btn-equal"> =</button>
+            <td>
+                <button name="btn-equal" onclick="doCalculate()"> =</button>
             </td>
             <td>
                 <button name="btn-operator"> :</button>
@@ -66,8 +69,9 @@
         </tr>
     </table>
 </div>
+<script src="./display.js"></script>
 <script>
-    const output = document.getElementById("display");
+    const output = new NumberDisplay(document.getElementById("display"));
 
     document
         .querySelectorAll("[name=btn-num]")
@@ -77,15 +81,28 @@
         .forEach(e => e.addEventListener('click', onButtonOperatorClicked));
 
     function onButtonNumClicked(event) {
-        const number = event.target.innerText.trim();
-        if (output.innerText === "0")
-            output.innerText = number;
-        else
-            output.innerText += number;
     }
 
-    function onButtonOperatorClicked() {
+    function onButtonOperatorClicked(event) {
+    }
 
+    function doCalculate() {
+    }
+
+    function calculate(operand1, operand2, operator) {
+        if (isNumber(operand1) && isNumber(operand2))
+            switch (operator) {
+                case "+":
+                    return operand1 + operand2;
+                case "-":
+                    return operand1 - operand2;
+                case "x":
+                    return operand1 * operand2;
+                case ":":
+                    // if operand2 is 0 then the result will be Infinity
+                    return operand1 / operand2;
+            }
+        throw TypeError("Invalid argument");
     }
 </script>
 </body>
