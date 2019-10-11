@@ -29,10 +29,3 @@ function isEmail(str) {
     }
     return false;
 }
-
-function isNumber(value) {
-    if (value === 0 || value) {
-        return !isNaN(Number(value));
-    }
-    return false;
-}
