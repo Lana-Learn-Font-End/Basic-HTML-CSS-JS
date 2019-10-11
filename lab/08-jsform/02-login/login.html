@@ -25,7 +25,7 @@
         </div>
     </form>
 </div>
-<script src="../validate-lib.js"></script>
+<script src="validate-lib.js"></script>
 <script>
     const email = document.getElementById("email");
     const emailError = new ErrorElement(document.getElementById("email-error"));
@@ -59,7 +59,7 @@
             email.classList.remove("input-error");
         } else {
             isBlank(email.value) ?
-                emailError.setErrorMessage("Please fill in this filed") :
+                emailError.setErrorMessage("Please fill in this field") :
                 emailError.setErrorMessage("Not a valid email");
             email.classList.add("input-error");
         }
