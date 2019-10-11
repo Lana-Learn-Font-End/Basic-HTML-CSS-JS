@@ -7,14 +7,12 @@ class ErrorElement {
         this.element.innerText = message;
     }
 
-    clearErrorMessage(message) {
+    clearErrorMessage() {
         this.element.innerText = "";
     }
 
     isActive() {
-        if (this.element.innerText)
-            return true;
-        return false;
+        return !!this.element.innerText;
     }
 }
 
