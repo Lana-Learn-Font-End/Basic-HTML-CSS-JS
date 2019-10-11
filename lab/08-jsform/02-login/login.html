@@ -31,6 +31,7 @@
     const emailError = new ErrorElement(document.getElementById("email-error"));
     const password = document.getElementById("password");
     const passwordError = new ErrorElement(document.getElementById("password-error"));
+    let loginCount = 0;
 
     function login() {
         validateEmail();
@@ -42,6 +43,7 @@
             } else {
                 passwordError.setErrorMessage("Wrong username or password");
                 shake(document.getElementById("form-container"));
+                countLogin();
             }
         } else {
             if (passwordError.isActive())
@@ -97,6 +99,14 @@
         const element = event.target;
         element.classList.remove("error-shake");
         element.removeEventListener("webkitAnimationEnd", endAnimate);
+    }
+
+    function countLogin() {
+        loginCount++;
+        if (loginCount >= 3) {
+            alert("That was your last chance, bro");
+            window.location.href = "./go-away.html";
+        }
     }
 </script>
 </body>
