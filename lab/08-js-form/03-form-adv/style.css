@@ -1,16 +1,24 @@
 .form-control {
-    display: inline-block;
+    display: block;
+    margin: 10px;
+    overflow: hidden;
 }
 
-.form-control > input, label {
-    display: block;
+.form-control > label {
+    float: left;
+    margin: 0 10px;
 }
 
 .form-control > small {
-    display: none;
+    display: block;
+    float: left;
 }
 
-small[data-validate="invalid"] {
-    display: block;
-    color: red;
+.input {
+    display: inline-grid;
+    float: right;
+}
+
+form {
+    display: inline-block;
 }

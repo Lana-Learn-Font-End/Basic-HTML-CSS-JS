@@ -6,12 +6,39 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<div class="form-control">
-    <label for="input">Input</label>
-    <input id="input" type="text">
-    <small id="input-error">Error</small>
-</div>
-<script src="../validator.js"></script>
+<form action="">
+    <div class="form-left">
+        <div class="form-control">
+            <label for="customer-name">Họ và tên</label>
+            <div class="input">
+                <input id="customer-name" type="text">
+                <small id="customer-name-error">Error</small>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="customer-email">Email</label>
+            <div class="input">
+                <input id="customer-email" type="text">
+                <small id="customer-email-error"></small>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="customer-phone">Điện thoại</label>
+            <div class="input">
+                <input id="customer-phone" type="text">
+                <small id="customer-phone-error"></small>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="customer-address">Địa chỉ</label>
+            <div class="input">
+                <input id="customer-address" type="text">
+                <small id="customer-address-error"></small>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="validator.js"></script>
 <script>
     const input = new TextInputValidator("input")
         .isEmail("Not a valid email")
