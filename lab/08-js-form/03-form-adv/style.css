@@ -1,0 +1,16 @@
+.form-control {
+    display: inline-block;
+}
+
+.form-control > input, label {
+    display: block;
+}
+
+.form-control > small {
+    display: none;
+}
+
+small[data-validate="invalid"] {
+    display: block;
+    color: red;
+}

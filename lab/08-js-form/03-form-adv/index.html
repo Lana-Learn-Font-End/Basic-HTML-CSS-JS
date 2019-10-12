@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="form-control">
+    <label for="input">Input</label>
+    <input id="input" type="text">
+    <small id="input-error">Error</small>
+</div>
+<script src="../validator.js"></script>
+<script>
+    const input = new TextInputValidator("input")
+        .isEmail("Not a valid email")
+        .notBlank("Must not blank");
+</script>
+</body>
+</html>
