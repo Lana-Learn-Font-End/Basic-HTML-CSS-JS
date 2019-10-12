@@ -6,43 +6,91 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<form action="">
-    <div class="form-left">
-        <div class="form-control">
-            <label for="customer-name">Họ và tên</label>
-            <div class="input">
-                <input id="customer-name" type="text">
-                <small id="customer-name-error">Error</small>
+<div class="content">
+    <div class="form-container">
+        <h2>Form đặt hàng online:</h2>
+        <form action="">
+            <!--customer form-->
+            <div class="form-col">
+                <div class="row">Thông tin người mua</div>
+                <label for="customer-name">Họ và tên</label>
+                <div class="input">
+                    <input id="customer-name" type="text">
+                    <small id="customer-name-error"></small>
+                </div>
+                <label for="customer-email">Email</label>
+                <div class="input">
+                    <input id="customer-email" type="text">
+                    <small id="customer-email-error"></small>
+                </div>
+                <label for="customer-phone">Điện thoại</label>
+                <div class="input">
+                    <input id="customer-phone" type="text">
+                    <small id="customer-phone-error"></small>
+                </div>
+                <label for="customer-address">Địa chỉ</label>
+                <div class="input">
+                    <input id="customer-address" type="text">
+                    <small id="customer-address-error"></small>
+                </div>
+                <label for="customer-date">Ngày đặt</label>
+                <div class="input">
+                    <input id="customer-date" type="text">
+                    <small id="customer-date-error"></small>
+                </div>
+                <label for="customer-payment-method">Phương thức thanh toán</label>
+                <div class="input">
+                    <input id="customer-payment-method" type="text">
+                    <small id="customer-payment-method-error"></small>
+                </div>
+                <label for="to-address">Địa chỉ</label>
+                <div class="input">
+                    <input id="to-address" type="text">
+                    <small id="to-address-error"></small>
+                </div>
+                <div class="row">
+                    <input id="send-mail" type="checkbox">
+                    <label for="send-mail">Gửi mail cho tôi</label>
+                </div>
             </div>
-        </div>
-        <div class="form-control">
-            <label for="customer-email">Email</label>
-            <div class="input">
-                <input id="customer-email" type="text">
-                <small id="customer-email-error"></small>
+
+            <!--seller form-->
+            <div class="form-col">
+                <div class="row">Thông tin người nhận</div>
+                <div class="row">
+                    <input id="confirm" type="checkbox">
+                    <label for="confirm">Tôi là người nhận</label>
+                </div>
+                <label for="seller-name">Họ và tên</label>
+                <div class="input">
+                    <input id="seller-name" type="text">
+                    <small id="seller-name-error"></small>
+                </div>
+                <label for="seller-email">Email</label>
+                <div class="input">
+                    <input id="seller-email" type="text">
+                    <small id="seller-email-error"></small>
+                </div>
+                <label for="seller-phone">Điện thoại</label>
+                <div class="input">
+                    <input id="seller-phone" type="text">
+                    <small id="seller-phone-error"></small>
+                </div>
+                <label class="seller-note" for="seller-note">Ghi chú</label>
+                <textarea cols="40" id="seller-note" rows="8"></textarea>
             </div>
-        </div>
-        <div class="form-control">
-            <label for="customer-phone">Điện thoại</label>
-            <div class="input">
-                <input id="customer-phone" type="text">
-                <small id="customer-phone-error"></small>
+            <div class="row" style="text-align: center">
+                <button type="submit">Đặt hàng</button>
+                <button type="reset"> Nhập lại</button>
             </div>
-        </div>
-        <div class="form-control">
-            <label for="customer-address">Địa chỉ</label>
-            <div class="input">
-                <input id="customer-address" type="text">
-                <small id="customer-address-error"></small>
-            </div>
-        </div>
+        </form>
     </div>
-</form>
+</div>
 <script src="validator.js"></script>
 <script>
-    const input = new TextInputValidator("input")
+    new TextInputValidator("customer-email")
         .isEmail("Not a valid email")
-        .notBlank("Must not blank");
+        .notBlank("Please fill in this field");
 </script>
 </body>
 </html>
