@@ -2,7 +2,7 @@ class InputValidator {
     constructor(id) {
         this.input = document.getElementById(id);
         this.message = document.getElementById(`${id}-error`);
-        this.input.addEventListener("keyup", () => this.validate());
+        this.input.addEventListener("change", () => this.validate());
 
         this.errorMessage = "Invalid";
         this.validMessage = "";
