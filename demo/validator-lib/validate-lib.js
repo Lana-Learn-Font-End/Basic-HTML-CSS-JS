@@ -1,11 +1,11 @@
 /*
 usage: new FieldValidator(inputDOMElement)
         .on('event')
-        .validate(validatorFn, param1, param2, ...).message()
+        .validate(validatorFn, param1, param2, ...).errorMessage()
         .validate...
         .on('event2')
         .validate...
-        [.setValidMessage('valid!')];
+        .validMessage('valid!');
 
 it will create an <small> for display error at initialization
 untouched: data-validate
@@ -19,7 +19,7 @@ class FieldValidator {
         this.initMessageElement();
         this.resetValidateState();
 
-        this.validMessage = "";
+        this._validMessage = "";
         this.event = "change";
         this.validatorFnListenerMap = new Map();
     }
@@ -54,19 +54,19 @@ class FieldValidator {
                 const listeners = this.validatorFnListenerMap.get(firedEvent);
                 for (const listener of listeners) {
                     if (!listener.validator()) {
-                        this.messageElement.innerText = listener.errorMessage;
+                        this.messageElement.innerText = listener.error;
                         this.toggleValidateState(false);
                         return;
                     }
                 }
-                this.messageElement.innerText = this.validMessage;
+                this.messageElement.innerText = this._validMessage;
                 this.toggleValidateState(true);
             })
         }
         existedListeners = this.validatorFnListenerMap.get(this.event);
         existedListeners.push({
             validator: () => func(this.inputElement.value, ...args),
-            errorMessage: "",
+            error: "",
         });
         return this;
     }
@@ -90,11 +90,11 @@ class FieldValidator {
     set an error message for the latest validator listener of
     current event
     */
-    message(message) {
+    errorMessage(message) {
         const listeners = this.validatorFnListenerMap.get(this.event);
         if (listeners && listeners.length > 0) {
             const lastIndex = listeners.length - 1;
-            listeners[lastIndex].errorMessage = message;
+            listeners[lastIndex].error = message;
         }
         return this;
     }
@@ -102,8 +102,8 @@ class FieldValidator {
     /*
     set the message when the input value pass all validator
     */
-    setValidMessage(message) {
-        this.validMessage = message;
+    validMessage(message) {
+        this._validMessage = message;
         return this;
     }
 

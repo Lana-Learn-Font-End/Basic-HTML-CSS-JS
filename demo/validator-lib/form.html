@@ -40,9 +40,10 @@
 <script src="validator.js"></script>
 <script>
     const input = new FieldValidator(document.getElementById("email"))
-        .on('keyup').validate(notBlank).message("Must not blank")
-        .on('change').validate(isEmail).message("Not a valid email")
-        .setValidMessage("Nice");
+        .on('keyup')
+        .validate(notBlank).errorMessage("Must not blank")
+        .validate(isEmail).errorMessage("Not a valid email")
+        .validMessage("Nice");
 </script>
 </body>
 </html>
