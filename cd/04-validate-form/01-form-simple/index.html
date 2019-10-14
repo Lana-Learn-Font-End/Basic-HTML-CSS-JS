@@ -3,8 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Form</title>
+    <link href="./style.css" rel="stylesheet">
 </head>
 <body>
+<div class="content">
+    <form action="" id="login-form">
+        <label for="name">Username</label>
+        <div><input id="name" name="name" type="text"></div>
+        <label for="password">Password</label>
+        <div><input id="password" name="password" type="password"></div>
+        <div class="button-row">
+            <button type="submit">login</button>
+            <button type="reset">reset</button>
+        </div>
+    </form>
+</div>
+<script src="../validate-lib.js"></script>
+<script src="../validator.js"></script>
+<script>
+    const form = new FormValidator(document.getElementById("login-form"));
 
+    form.fields.get("name")
+        .on("keyup").validateBy(notBlank).errorMessage("Please fill in this field")
+        .on("submit").validateBy(is, "admin");
+
+    form.fields.get("password")
+        .on("keyup").validateBy(notBlank).errorMessage("Please fill in this field")
+        .on("submit").validateBy(is, "123456").errorMessage("wrong username or password");
+
+    // validate before submit
+    form.element.addEventListener("submit", event => {
+        event.preventDefault();
+        form.validate();
+        if (!form.hasError()) {
+            window.location.href = "welcome.html";
+        }
+    });
+    // reset validate state when click reset button
+    form.element.addEventListener("reset", () => form.resetValidateState());
+</script>
 </body>
 </html>

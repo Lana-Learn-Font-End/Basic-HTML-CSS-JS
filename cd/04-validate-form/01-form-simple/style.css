@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    margin-top: 100px;
+    display: inline-block;
+    box-shadow: 10px 10px 10px 5px grey;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    padding-top: 10px;
+}
+
+input {
+    display: block;
+}
+
+small {
+    display: none;
+}
+
+.button-row {
+    padding-top: 15px;
+}
+
+small[data-validate=invalid] {
+    display: block;
+    color: red;
+}
+

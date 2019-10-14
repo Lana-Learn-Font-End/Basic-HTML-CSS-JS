@@ -1,8 +1,7 @@
 class FormValidator {
     constructor(formElement) {
-        this.formElement = formElement;
-
-        const inputs = Array.from(this.formElement.querySelectorAll("input[id]"));
+        this.element = formElement;
+        const inputs = Array.from(this.element.querySelectorAll("input[id]"));
         this.fields = new Map(inputs.map(e => [e.id, new FieldValidator(e)]));
     }
 
@@ -28,6 +27,12 @@ class FormValidator {
     validate() {
         for (const field of this.fields.values()) {
             field.validate();
+        }
+    }
+
+    resetValidateState() {
+        for (const field of this.fields.values()) {
+            field.resetValidateState();
         }
     }
 }
@@ -88,7 +93,9 @@ class FieldValidator {
                 const listeners = this.validatorFnListenerMap.get(firedEvent);
                 for (const listener of listeners) {
                     if (!listener.validator()) {
-                        this.messageElement.innerText = listener.error;
+                        if (!this.messageElement.innerText) {
+                            this.messageElement.innerText = listener.error;
+                        }
                         this.toggleValidateState(false);
                         return;
                     }
@@ -149,7 +156,7 @@ class FieldValidator {
     }
 
     hasError() {
-        return this.inputElement.dataset === "invalid";
+        return this.inputElement.dataset.validate === "invalid";
     }
 
     /*
