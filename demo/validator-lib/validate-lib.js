@@ -118,4 +118,10 @@ class FieldValidator {
         this.messageElement.dataset.validate = "";
         this.inputElement.dataset.validate = "";
     }
+
+    static from(query) {
+        return document
+            .querySelectorAll(query)
+            .map(e => new InputValidator(e));
+    }
 }
