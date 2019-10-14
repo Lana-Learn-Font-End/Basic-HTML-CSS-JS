@@ -93,7 +93,9 @@ class FieldValidator {
                 const listeners = this.validatorFnListenerMap.get(firedEvent);
                 for (const listener of listeners) {
                     if (!listener.validator()) {
-                        this.messageElement.innerText = listener.error;
+                        if (!this.messageElement.innerText) {
+                            this.messageElement.innerText = listener.error;
+                        }
                         this.toggleValidateState(false);
                         return;
                     }
