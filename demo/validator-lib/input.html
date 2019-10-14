@@ -6,7 +6,7 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<form action="" id="form">
+<form action="">
     <label for="email">Email: </label>
     <div>
         <input id="email" name="email" type="text">
@@ -15,12 +15,11 @@
 <script src="validate-lib.js"></script>
 <script src="validator.js"></script>
 <script>
-    const form = new FormValidator(document.getElementById("form"));
-    form.fields.get("email")
+    const input = new FieldValidator(document.getElementById("email"))
         .on("keyup")
-        .validateBy(notBlank).errorMessage("Fill this")
+        .validateBy(notBlank).errorMessage("Must not blank")
         .validateBy(isEmail).errorMessage("Not a valid email")
-        .validMessage("ok")
+        .validMessage("Nice");
 </script>
 </body>
 </html>

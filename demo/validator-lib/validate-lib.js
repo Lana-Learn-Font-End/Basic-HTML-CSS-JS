@@ -1,3 +1,37 @@
+class FormValidator {
+    constructor(formElement) {
+        this.formElement = formElement;
+
+        const inputs = Array.from(this.formElement.querySelectorAll("input[id]"));
+        this.fields = new Map(inputs.map(e => [e.id, new FieldValidator(e)]));
+    }
+
+    hasError() {
+        for (const field of this.fields.values()) {
+            if (field.hasError()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    getFieldsError() {
+        const errors = [];
+        for (const [id, field] of this.fields) {
+            if (field.hasError()) {
+                errors.push(id);
+            }
+        }
+        return errors;
+    }
+
+    validate() {
+        for (const field of this.fields.values()) {
+            field.validate();
+        }
+    }
+}
+
 /*
 usage: new FieldValidator(inputDOMElement)
         .on('event')
@@ -13,8 +47,8 @@ valid input value: data-validate=valid
 invalid input value: data-validate=invalid
 */
 class FieldValidator {
-    constructor(input) {
-        this.inputElement = input;
+    constructor(inputElement) {
+        this.inputElement = inputElement;
         this.messageElement = null;
         this.initMessageElement();
         this.resetValidateState();
@@ -41,7 +75,7 @@ class FieldValidator {
     /*
     add an validator that execute (in turn) when event trigger
     */
-    validate(func, ...args) {
+    validateBy(func, ...args) {
         let existedListeners = this.validatorFnListenerMap.get(this.event);
         if (!existedListeners) {
             /*
@@ -107,6 +141,13 @@ class FieldValidator {
         return this;
     }
 
+    validate() {
+        const events = this.validatorFnListenerMap.keys();
+        for (const eventType of events) {
+            this.inputElement.dispatchEvent(new Event(eventType));
+        }
+    }
+
     hasError() {
         return this.inputElement.dataset === "invalid";
     }
@@ -117,11 +158,5 @@ class FieldValidator {
     resetValidateState() {
         this.messageElement.dataset.validate = "";
         this.inputElement.dataset.validate = "";
-    }
-
-    static from(query) {
-        return document
-            .querySelectorAll(query)
-            .map(e => new InputValidator(e));
     }
 }

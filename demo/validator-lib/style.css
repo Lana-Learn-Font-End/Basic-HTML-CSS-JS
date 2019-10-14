@@ -1,0 +1,23 @@
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: .8em;
+}
+
+input {
+    display: block;
+}
+
+small[data-validate=invalid] {
+    display: block;
+    color: red;
+}
+
+small[data-validate=valid] {
+    display: block;
+    color: green;
+}
+
+small {
+    display: none;
+}
