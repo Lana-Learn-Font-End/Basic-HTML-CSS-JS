@@ -17,6 +17,7 @@
 <script>
     const input = new FieldValidator(document.getElementById("email"))
         .on("keyup")
+        .validateBy(notEmpty).errorMessage("Please fill in this field")
         .validateBy(notBlank).errorMessage("Must not blank")
         .validateBy(isEmail).errorMessage("Not a valid email")
         .validMessage("Nice");
