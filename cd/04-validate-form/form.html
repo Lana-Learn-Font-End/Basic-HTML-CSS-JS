@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>
+        form {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: .8em;
+        }
+
+        input {
+            display: block;
+        }
+
+        small[data-validate=invalid] {
+            display: block;
+            color: red;
+        }
+
+        small[data-validate=valid] {
+            display: block;
+            color: green;
+        }
+
+        small {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <label for="email">Email: </label>
+    <div>
+        <input id="email" name="email" type="text">
+    </div>
+</form>
+<script src="validate-lib.js"></script>
+<script src="validator.js"></script>
+<script>
+    const input = new FieldValidator(document.getElementById("email"))
+        .on('keyup').validate(notBlank).message("Must not blank")
+        .on('change').validate(isEmail).message("Not a valid email")
+        .setValidMessage("Nice");
+</script>
+</body>
+</html>
