@@ -19,17 +19,21 @@
     </form>
 </div>
 <script src="../validate-lib.js"></script>
-<script src="../validator.js"></script>
 <script>
     const form = new FormValidator(document.getElementById("login-form"));
 
     form.fields.get("name")
-        .on("keyup").validateBy(notBlank).errorMessage("Please fill in this field")
-        .on("submit").validateBy(is, "admin");
+        .on("keyup")
+        .validateBy(notBlank).errorMessage("Please fill in this field")
+        .on("submit")
+        .validateBy(notBlank).errorMessage("Please fill in this field");
 
     form.fields.get("password")
-        .on("keyup").validateBy(notBlank).errorMessage("Please fill in this field")
-        .on("submit").validateBy(is, "123456").errorMessage("wrong username or password");
+        .on("keyup")
+        .validateBy(notBlank).errorMessage("Please fill in this field")
+        .on("submit")
+        .validateBy(notBlank).errorMessage("Please fill in this field")
+        .validateBy(validateUser, form.fields.get("name").value).errorMessage("wrong username or password");
 
     // validate before submit
     form.element.addEventListener("submit", event => {
@@ -41,6 +45,17 @@
     });
     // reset validate state when click reset button
     form.element.addEventListener("reset", () => form.resetValidateState());
+
+    function validateUser(username, password) {
+        return username === "admin" && password === "123456";
+    }
+
+    function notBlank(str) {
+        if (str) {
+            return str.trim();
+        }
+        return false;
+    }
 </script>
 </body>
 </html>
