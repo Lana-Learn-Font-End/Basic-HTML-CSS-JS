@@ -14,16 +14,6 @@ class FormValidator {
         return false;
     }
 
-    getFieldsError() {
-        const errors = [];
-        for (const [id, field] of this.fields) {
-            if (field.hasError()) {
-                errors.push(id);
-            }
-        }
-        return errors;
-    }
-
     validate() {
         for (const field of this.fields.values()) {
             field.validate();
@@ -41,7 +31,7 @@ class FormValidator {
 usage: new FieldValidator(inputDOMElement)
         .on('event')
         .validate(validatorFn, param1, param2, ...).errorMessage()
-        .validate...
+        .validate(validatorFn2, param1, param2, ...).errorExecute(event => console.log(event))
         .on('event2')
         .validate...
         .validMessage('valid!');
@@ -69,18 +59,11 @@ class FieldValidator {
         this.inputElement.parentNode.insertBefore(this.messageElement, this.inputElement.nextSibling);
     }
 
-    /*
-    switch event-type for listener
-    previous validate execute when old event trigger, not this new event
-    */
     on(event) {
         this.event = event;
         return this;
     }
 
-    /*
-    add an validator that execute (in turn) when event trigger
-    */
     validateBy(func, ...args) {
         let existedListeners = this.validatorFnListenerMap.get(this.event);
         if (!existedListeners) {
@@ -133,10 +116,6 @@ class FieldValidator {
         }
     }
 
-    /*
-    set an error message for the latest validator listener of
-    current event
-    */
     errorMessage(message) {
         const listeners = this.validatorFnListenerMap.get(this.event);
         if (listeners && listeners.length > 0) {
@@ -146,10 +125,6 @@ class FieldValidator {
         return this;
     }
 
-    /*
-    set an function that execute when latest validator listener of
-    current event fail
-    */
     errorExecute(func) {
         const listeners = this.validatorFnListenerMap.get(this.event);
         if (listeners && listeners.length > 0) {
@@ -159,9 +134,6 @@ class FieldValidator {
         return this;
     }
 
-    /*
-    set the message when the input value pass all validator
-    */
     validMessage(message) {
         this._validMessage = message;
         return this;
@@ -183,9 +155,6 @@ class FieldValidator {
         return this.inputElement.dataset.validate === "invalid";
     }
 
-    /*
-    reset data-validate value
-    */
     resetValidateState() {
         this.messageElement.dataset.validate = "";
         this.inputElement.dataset.validate = "";
