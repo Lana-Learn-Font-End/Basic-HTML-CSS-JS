@@ -16,7 +16,7 @@
 <script src="validator.js"></script>
 <script>
     const form = new FormValidator(document.getElementById("form"));
-    form.fields.get("email")
+    form.field("#email")
         .on("keyup")
         .validateBy(notBlank).errorMessage("Fill this")
         .validateBy(isEmail).errorMessage("Not a valid email")

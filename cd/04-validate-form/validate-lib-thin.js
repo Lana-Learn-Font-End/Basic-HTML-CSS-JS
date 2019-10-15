@@ -1,12 +1,22 @@
 class FormValidator {
     constructor(formElement) {
         this.element = formElement;
-        const inputs = Array.from(this.element.querySelectorAll("input[id]"));
-        this.fields = new Map(inputs.map(e => [e.id, new FieldValidator(e)]));
+        this.fields = Array
+            .from(this.element.querySelectorAll("input"))
+            .map(element => new FieldValidator(element));
+    }
+
+    field(selector) {
+        const inputElement = this.element.querySelector(selector);
+        return this.fields.find(field => field.inputElement === inputElement);
+    }
+
+    getErrorFields() {
+        return this.fields.filter(field => field.hasError());
     }
 
     hasError() {
-        for (const field of this.fields.values()) {
+        for (const field of this.fields) {
             if (field.hasError()) {
                 return true;
             }
@@ -15,15 +25,11 @@ class FormValidator {
     }
 
     validate() {
-        for (const field of this.fields.values()) {
-            field.validate();
-        }
+        this.fields.forEach(field => field.validate());
     }
 
     resetValidateState() {
-        for (const field of this.fields.values()) {
-            field.resetValidateState();
-        }
+        this.fields.forEach(field => field.resetValidateState());
     }
 }
 

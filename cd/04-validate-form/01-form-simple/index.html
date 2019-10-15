@@ -18,15 +18,15 @@
         </div>
     </form>
 </div>
-<script src="../validate-lib.js"></script>
+<script src="../validate-lib-thin.js"></script>
 <script>
     const form = new FormValidator(document.getElementById("login-form"));
 
-    form.fields.get("name")
+    form.field("#name")
         .on("keyup")
         .validateBy(notBlank).errorMessage("Please fill in this field");
 
-    form.fields.get("password")
+    form.field("#password")
         .on("keyup")
         .validateBy(notBlank).errorMessage("Please fill in this field");
 
@@ -35,12 +35,12 @@
         event.preventDefault();
         form.validate();
         if (!form.hasError()) {
-            const username = form.fields.get("name").value;
-            const password = form.fields.get("password").value;
+            const username = form.field("#name").value;
+            const password = form.field("#password").value;
             if (username === "admin" && password === "123456") {
                 window.location.href = "welcome.html";
             } else {
-                form.fields.get("password").setError("Wrong username or password");
+                form.field("#password").setError("Wrong username or password");
             }
         }
     });
