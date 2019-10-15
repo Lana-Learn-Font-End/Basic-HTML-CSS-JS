@@ -58,6 +58,7 @@ class FieldValidator {
         this.initMessageElement();
         this.resetValidateState();
 
+        this._validExecute = undefined;
         this._validMessage = "";
         this.event = "change";
         this.validatorFnListenerMap = new Map();
@@ -89,25 +90,27 @@ class FieldValidator {
             */
             const firedEvent = this.event;
             this.validatorFnListenerMap.set(this.event, []);
-            this.inputElement.addEventListener(this.event, () => {
+            this.inputElement.addEventListener(this.event, evt => {
                 const listeners = this.validatorFnListenerMap.get(firedEvent);
                 for (const listener of listeners) {
                     if (!listener.validator()) {
-                        if (!this.messageElement.innerText) {
-                            this.messageElement.innerText = listener.error;
-                            this.toggleValidateState(false);
-                        }
+                        // only change message, not re-toggle if error already exist
+                        this.toggleValidateState(false);
+                        this.messageElement.innerText = listener.error;
+                        if (listener.execute) listener.execute(evt);
                         return;
                     }
                 }
                 this.messageElement.innerText = this._validMessage;
+                if (this._validExecute) this.validExecute(evt);
                 this.toggleValidateState(true);
-            })
+            });
         }
         existedListeners = this.validatorFnListenerMap.get(this.event);
         existedListeners.push({
             validator: () => func(this.inputElement.value, ...args),
             error: "",
+            execute: undefined
         });
         return this;
     }
@@ -118,10 +121,13 @@ class FieldValidator {
     if input is valid: data-validate="invalid"
     */
     toggleValidateState(isValid) {
+        const previousError = this.hasError();
         if (isValid) {
-            this.inputElement.dataset.validate = "valid";
-            this.messageElement.dataset.validate = "valid";
-        } else {
+            if (previousError) {
+                this.inputElement.dataset.validate = "valid";
+                this.messageElement.dataset.validate = "valid";
+            }
+        } else if (!previousError) {
             this.inputElement.dataset.validate = "invalid";
             this.messageElement.dataset.validate = "invalid";
         }
@@ -141,10 +147,28 @@ class FieldValidator {
     }
 
     /*
+    set an function that execute when latest validator listener of
+    current event fail
+    */
+    errorExecute(func) {
+        const listeners = this.validatorFnListenerMap.get(this.event);
+        if (listeners && listeners.length > 0) {
+            const lastIndex = listeners.length - 1;
+            listeners[lastIndex].execute = func;
+        }
+        return this;
+    }
+
+    /*
     set the message when the input value pass all validator
     */
     validMessage(message) {
         this._validMessage = message;
+        return this;
+    }
+
+    validExecute(func) {
+        this._validExecute = func;
         return this;
     }
 

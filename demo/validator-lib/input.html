@@ -20,6 +20,11 @@
         .validateBy(notEmpty).errorMessage("Please fill in this field")
         .validateBy(notBlank).errorMessage("Must not blank")
         .validateBy(isEmail).errorMessage("Not a valid email")
+        .on("focusout")
+        .validateBy(isEmail).errorExecute(evt => {
+            console.log(evt);
+            alert("Not a valid email");
+        })
         .validMessage("Nice");
 </script>
 </body>
