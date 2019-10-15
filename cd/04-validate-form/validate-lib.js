@@ -190,4 +190,9 @@ class FieldValidator {
         this.messageElement.dataset.validate = "";
         this.inputElement.dataset.validate = "";
     }
+
+    setError(message) {
+        this.toggleValidateState(false);
+        this.messageElement.innerText = message;
+    }
 }

@@ -24,31 +24,28 @@
 
     form.fields.get("name")
         .on("keyup")
-        .validateBy(notBlank).errorMessage("Please fill in this field")
-        .on("submit")
         .validateBy(notBlank).errorMessage("Please fill in this field");
 
     form.fields.get("password")
         .on("keyup")
-        .validateBy(notBlank).errorMessage("Please fill in this field")
-        .on("submit")
-        .validateBy(notBlank).errorMessage("Please fill in this field")
-        .validateBy(validateUser, form.fields.get("name").value).errorMessage("wrong username or password");
+        .validateBy(notBlank).errorMessage("Please fill in this field");
 
     // validate before submit
     form.element.addEventListener("submit", event => {
         event.preventDefault();
         form.validate();
         if (!form.hasError()) {
-            window.location.href = "welcome.html";
+            const username = form.fields.get("name").value;
+            const password = form.fields.get("password").value;
+            if (username === "admin" && password === "123456") {
+                window.location.href = "welcome.html";
+            } else {
+                form.fields.get("password").setError("Wrong username or password");
+            }
         }
     });
     // reset validate state when click reset button
     form.element.addEventListener("reset", () => form.resetValidateState());
-
-    function validateUser(username, password) {
-        return username === "admin" && password === "123456";
-    }
 
     function notBlank(str) {
         if (str) {
