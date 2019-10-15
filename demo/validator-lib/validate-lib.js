@@ -95,8 +95,8 @@ class FieldValidator {
                     if (!listener.validator()) {
                         if (!this.messageElement.innerText) {
                             this.messageElement.innerText = listener.error;
+                            this.toggleValidateState(false);
                         }
-                        this.toggleValidateState(false);
                         return;
                     }
                 }
