@@ -77,7 +77,6 @@ class FieldValidator {
                 const listeners = this.validatorFnListenerMap.get(firedEvent);
                 for (const listener of listeners) {
                     if (!listener.validator()) {
-                        // only change message, not re-toggle if error already exist
                         this.toggleValidateState(false);
                         this.messageElement.innerText = listener.error;
                         if (listener.execute) listener.execute(evt);
