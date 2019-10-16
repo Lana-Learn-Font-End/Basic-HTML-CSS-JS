@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image</title>
+</head>
+<body>
+<select id="img-select" name="img-select" style="display: block">
+    <option selected value="img1.jpeg">image1</option>
+    <option value="img2.jpeg">image2</option>
+</select>
+<img alt="img" id="img" src="img1.jpeg">
+<script>
+    document
+        .getElementById("img-select")
+        .addEventListener("change", (event) => {
+            const image = document.getElementById("img");
+            image.src = event.target.value;
+        });
+</script>
+</body>
+</html>
