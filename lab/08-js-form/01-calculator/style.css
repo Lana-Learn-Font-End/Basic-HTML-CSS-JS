@@ -4,7 +4,8 @@
     grid-gap: 10px;
     padding: 20px;
     border: 1px solid black;
-    margin: 30%;
+    margin: 10%;
+    width: 200px;
 }
 
 .display {
