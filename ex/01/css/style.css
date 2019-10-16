@@ -1,0 +1,86 @@
+header {
+    background: #7B1FA2;
+}
+
+footer {
+    background: #424242;
+    padding: 1%;
+}
+
+footer h2, small {
+    color: white;
+    margin: 10px 10%;
+}
+
+.logo {
+    margin: 1% 10%;
+}
+
+.form {
+    width: 62%;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    grid-row-gap: .8em;
+    grid-column-gap: 1.2em;
+    margin: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.required-mark {
+    text-align: right;
+}
+
+.input {
+    background: white;
+    border: 1px solid gray;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 8px;
+    border-radius: 3px;
+    height: 40px;
+}
+
+textarea.input {
+    height: auto;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.form-header {
+    background: #7B1FA2;
+    padding: 8px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    color: white;
+    text-align: center;
+}
+
+.form-container {
+    width: 80%;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    grid-column: 2/-1;
+}
+
+button {
+    padding: 2px 10px;
+    background: #E0E0E0;
+    border: 1px solid #BDBDBD;
+}

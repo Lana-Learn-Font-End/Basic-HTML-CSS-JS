@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BachKhoa-Aptech</title>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <img alt="logo" class="logo" src="images/logo1.png">
+</header>
+<section class="content">
+    <div class="form-container">
+        <div class="form-header">Đăng kí khóa học</div>
+        <form action="" class="form">
+            <label class="label" for="name">Họ và tên</label>
+            <input class="input" data-validate="" id="name" name="name" placeholder="NGUYEN VAN B..." type="text">
+            <span class="required-mark">(*)</span>
+
+            <label class="label" for="email">Email</label>
+            <input class="input" data-validate="" id="email" name="email" placeholder="bkap@bachkhoa-aptech.com..."
+                   type="text">
+            <span class="required-mark">(*)</span>
+
+            <label class="label" for="phone">Số điện thoại</label>
+            <input class="input" data-validate="" id="phone" name="phone" placeholder="0123299332..." type="text">
+            <span class="required-mark">(*)</span>
+
+            <label class="label" for="subject">Khóa học</label>
+            <select class="input select" data-validate="" id="subject" name="subject">
+                <option disabled selected value="">-- Chọn khóa học --</option>
+                <option value="java">Lập trình web với java</option>
+                <option value="php">Lập trình web PHP & MySQL</option>
+                <option value="dotnet">Lập trình web asp.net MVC 5</option>
+            </select>
+            <span class="required-mark">(*)</span>
+
+            <label class="label">Giới tính</label>
+            <div class="row">
+                <label for="gender-male">Nam</label>
+                <input checked id="gender-male" name="gender" type="radio">
+                <label for="gender-female">Nữ</label>
+                <input id="gender-female" name="gender" type="radio">
+            </div>
+
+            <label class="label">Sở thích</label>
+            <div class="row">
+                <input id="hobby-traveling" name="hobby" type="checkbox">
+                <label for="hobby-traveling">Du lịch</label>
+                <input id="hobby-sport" name="hobby" type="checkbox">
+                <label for="hobby-sport">Thể thao</label>
+                <input id="hobby-programming" name="hobby" type="checkbox">
+                <label for="hobby-programming">Lập trình</label>
+            </div>
+
+            <label class="label" for="note">Ghi chú</label>
+            <textarea class="input" id="note" name="note" placeholder="Yêu cầu thắc mắc thêm.." rows="6"></textarea>
+
+            <div class="row">
+                <button type="submit">Đăng ký</button>
+                <button type="reset">Làm lại</button>
+            </div>
+        </form>
+    </div>
+</section>
+<footer>
+    <h2><strong>HỆ THỐNG ĐÀO TẠO CNTT QUỐC TẾ BACHKHOA-APTECH</strong></h2>
+    <small>15 năm hoạt - 30.000 HV đã tốt nghiệp - Chương trình đào tạo chuẩn quốc tế</small>
+</footer>
+<script src="script/validate-lib.js"></script>
+<script src="script/validator.js"></script>
+<script>
+    const form = new FormValidator(document.querySelector("form.form"));
+    form.field("#name")
+        .validateBy(notBlank, "Họ và tên không được để trống")
+        .validateBy(allUppercase, "Họ và tên phải viết hoa");
+    form.field("#email")
+        .validateBy(notBlank, "Xin hãy nhập email")
+        .validateBy(isEmail, "Email không hợp lệ");
+    form.field("#phone")
+        .validateBy(notBlank, "Xin hãy nhập số điện thoại")
+        .validateBy(isPhoneNumber, "Số điện thoại không hợp lệ");
+    form.field("#subject")
+        .validateBy(notBlank, "Xin hãy chọn một khóa học");
+
+    form.on("submit", (event) => {
+        event.preventDefault();
+        form.validate();
+        if (form.hasError()) {
+            alert(form.getErrors()[0]);
+        } else {
+            form.element.submit();
+        }
+    });
+    form.on("reset", () => {
+        form.resetValidateState();
+    })
+</script>
+</body>
+</html>
