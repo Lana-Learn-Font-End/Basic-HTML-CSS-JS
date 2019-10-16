@@ -9,7 +9,9 @@
 <div class="container">
     <table>
         <tr>
-            <td colspan="4" id="display" class="display"> 0</td>
+            <td colspan="4">
+                <input class="display" id="display" readonly type="text" value="0">
+            </td>
         </tr>
         <tr>
             <td>
@@ -50,7 +52,7 @@
                 <button name="btn-num"> 9</button>
             </td>
             <td>
-                <button name="btn-operator"> x</button>
+                <button name="btn-operator"> *</button>
             </td>
         </tr>
         <tr>
@@ -61,48 +63,67 @@
                 <button name="btn-num"> 0</button>
             </td>
             <td>
-                <button name="btn-equal" onclick="doCalculate()"> =</button>
+                <button name="btn-equal"> =</button>
             </td>
             <td>
-                <button name="btn-operator"> :</button>
+                <button name="btn-operator"> /</button>
             </td>
         </tr>
     </table>
 </div>
-<script src="./display.js"></script>
+<script src="display.js"></script>
 <script>
-    const output = new NumberDisplay(document.getElementById("display"));
-
+    const display = new CalculatorDisplay("#display");
+    let result = 0;
     document
         .querySelectorAll("[name=btn-num]")
-        .forEach(e => e.addEventListener('click', onButtonNumClicked));
+        .forEach(e => e.addEventListener("click", numberButtonClicked));
     document
         .querySelectorAll("[name=btn-operator]")
-        .forEach(e => e.addEventListener('click', onButtonOperatorClicked));
+        .forEach(e => e.addEventListener("click", operatorButtonClicked));
 
-    function onButtonNumClicked(event) {
+    document
+        .querySelector("[name=btn-equal]")
+        .addEventListener("click", calculate);
+    document
+        .querySelector("[name=btn-clear]")
+        .addEventListener("click", clear);
+
+    function numberButtonClicked(evt) {
+        const number = evt.target.innerText;
+        if (result !== 0) {
+            clear();
+        }
+        display.append(number);
     }
 
-    function onButtonOperatorClicked(event) {
-    }
-
-    function doCalculate() {
-    }
-
-    function calculate(operand1, operand2, operator) {
-        if (isNumber(operand1) && isNumber(operand2))
-            switch (operator) {
-                case "+":
-                    return operand1 + operand2;
-                case "-":
-                    return operand1 - operand2;
-                case "x":
-                    return operand1 * operand2;
-                case ":":
-                    // if operand2 is 0 then the result will be Infinity
-                    return operand1 / operand2;
+    function operatorButtonClicked(evt) {
+        const operator = evt.target.innerText;
+        if (display.getLastValue().match(/[\s-+*/]/)) {
+            if (operator === "+" || operator === "-") {
+                display.append(operator);
             }
-        throw TypeError("Invalid argument");
+        } else {
+            display.getValue() === "0" ?
+                display.append(operator) :
+                display.append(` ${operator} `);
+        }
+    }
+
+    function calculate() {
+        const formula = normalize(display.getValue());
+        result = eval(formula);
+        display.setValue(result);
+    }
+
+    function normalize(formula) {
+        const normalized = formula.match(/^[+-]?(0|[1-9][0-9]?)+( [-+*\\] [+-]?(0|[1-9][0-9]?)+)+/);
+        return normalized ? normalized[0] : "0";
+    }
+
+    function clear() {
+        display.clear();
+        result = 0;
     }
 </script>
 </body>

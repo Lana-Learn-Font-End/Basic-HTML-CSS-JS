@@ -1,33 +1,34 @@
-class NumberDisplay {
-    constructor(displayElement) {
-        this.display = displayElement;
-    }
-
-    setValue(number) {
-        if (isNumber(number)) {
-            this.display.innerText = Number(number);
-        }
-    }
-
-    appendValue(number) {
-        if (isNumber(number)) {
-            if (this.getValue() === 0)
-                this.setValue(number);
-            else
-                this.display.innerText += number;
-        }
+class CalculatorDisplay {
+    constructor(selector) {
+        this.output = document.querySelector(selector);
     }
 
     getValue() {
-        return Number(this.display.innerText);
+        return this.output.value;
     }
-}
 
-function isNumber(value) {
-    // cover falsy value such as null, undefined, empty string...
-    // cover 0 value is also falsy, but it is a valid number
-    if (value === 0 || value) {
-        return !isNaN(Number(value));
+    setValue(value) {
+        this.clear();
+        this.append(value);
     }
-    return false;
+
+    getLastValue() {
+        return this.output.value.slice(-1);
+    }
+
+    clear() {
+        this.output.value = "0";
+    }
+
+    append(value) {
+        if (this.isValid(value))
+            this.output.value !== "0" ?
+                this.output.value += value :
+                this.output.value = value;
+    }
+
+    isValid(value) {
+        value = value.toString();
+        return value.match(/[0-9\-+*/]/);
+    }
 }
