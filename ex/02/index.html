@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <img alt="logo" class="logo" src="images/logo1.png">
+</header>
+<section>
+    <div class="content">
+        <div>
+            <div class="content-header">Tin tức nổi bật</div>
+            <div class="content-body">
+                <img alt="android" class="img" src="images/android.png">
+                <img alt="java" class="img" src="images/java.jpg">
+                <img alt="png" class="img" src="images/php.png">
+            </div>
+        </div>
+        <div>
+            <div class="content-header">Thêm danh mục</div>
+            <form action="" class="content-body">
+                <div>
+                    <label class="label" for="name"> Tên danh mục <span class="red">(*)</span></label>
+                    <input class="input" id="name" name="name" type="text">
+                </div>
+                <div>
+                    <label class="label" for="link"> Meta link <span class="red">(*)</span></label>
+                    <input class="input" id="link" name="link" type="text">
+                </div>
+                <div>
+                    <label class="label" for="order"> Thứ tự hiển thị <span class="red">(*)</span></label>
+                    <input class="input" id="order" name="order" type="text">
+                </div>
+                <div>
+                    <label class="label" for="description"> Mô Tả</label>
+                    <textarea class="input" id="description" name="description" rows="5"></textarea>
+                </div>
+                <div>
+                    <label class="label" for="parent"> Chọn danh mục cha</label>
+                    <select class="input" id="parent" name="parent">
+                        <option disabled selected value="">--Chọn danh mục cha--</option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div>
+                    <label class="label"> Trạng thái</label>
+                    <div class="check-row">
+                        <div>
+                            <label class="check-label" for="status-show">Ẩn </label>
+                            <input checked id="status-show" name="status" type="radio">
+                        </div>
+                        <div>
+                            <label class="check-label" for="status-hide">Hiện </label>
+                            <input id="status-hide" name="status" type="radio">
+                        </div>
+                    </div>
+                </div>
+                <div></div> <!-- for extra line before btn-row-->
+                <div>
+                    <button type="submit">Thêm</button>
+                    <button type="reset">Làm lại</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

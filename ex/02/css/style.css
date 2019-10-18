@@ -1,0 +1,76 @@
+.logo {
+    margin: 1% 6%;
+}
+
+form {
+    width: 100%;
+    padding: 0 15px;
+    grid-gap: .8em;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.content {
+    width: 88%;
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-gap: 1.5em;
+}
+
+.content-header {
+    text-align: center;
+    color: white;
+    background: black;
+    font-size: 22px;
+    font-weight: bolder;
+    padding: 5px;
+    margin: 1.2em 0;
+}
+
+.content-body {
+    display: grid;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.img {
+    width: 100%;
+    display: block;
+    padding: 5px 0;
+}
+
+.label {
+    font-weight: bold;
+    display: block;
+    margin: .4em .2em;
+}
+
+.check-label {
+    font-weight: bold;
+}
+
+.red {
+    font-weight: bold;
+    color: red;
+}
+
+.input {
+    background: white;
+    display: block;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 2px;
+    padding: 5px;
+    min-height: 18px;
+}
+
+.check-row {
+    padding: 5px 0;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
