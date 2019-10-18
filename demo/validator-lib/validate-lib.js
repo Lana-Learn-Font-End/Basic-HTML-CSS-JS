@@ -33,20 +33,6 @@ class FormValidator {
     }
 }
 
-/*
-usage: new FieldValidator(inputDOMElement)
-        .on('event')
-        .validate(validatorFn, param1, param2, ...).errorMessage()
-        .validate(validatorFn2, param1, param2, ...).errorExecute(event => console.log(event))
-        .on('event2')
-        .validate...
-        .validMessage('valid!');
-
-it will create an <small> for display error at initialization
-untouched: data-validate
-valid input value: data-validate=valid
-invalid input value: data-validate=invalid
-*/
 class FieldValidator {
     constructor(inputElement) {
         this.inputElement = inputElement;
