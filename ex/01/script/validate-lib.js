@@ -28,16 +28,27 @@ class FormValidator {
         return !!this._fields.find(field => field.hasError());
     }
 
-    getErrors() {
+    getErrorFields() {
         return this._fields
-            .filter(field => field.hasError())
+            .filter(field => field.hasError());
+    }
+
+    getErrorMessages() {
+        return this
+            .getErrorFields()
             .map(errField => errField.message);
     }
 
     getErrorFunctions() {
-        return this._fields
-            .filter(field => field.hasError())
+        return this
+            .getErrorFields()
             .map(errField => errField.validateFunction);
+    }
+
+    getErrorElements() {
+        return this
+            .getErrorFields()
+            .map(errField => errField.element);
     }
 
     resetValidateState() {

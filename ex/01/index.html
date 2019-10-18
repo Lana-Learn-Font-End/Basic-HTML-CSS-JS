@@ -88,7 +88,7 @@
         event.preventDefault();
         form.validate();
         if (form.hasError()) {
-            alert(form.getErrors()[0]);
+            alert(form.getErrorMessages()[0]);
         } else {
             form.element.submit();
         }
