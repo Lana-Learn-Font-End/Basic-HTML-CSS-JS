@@ -1,10 +1,9 @@
 .logo {
-    margin: 1% 6%;
+    margin: .8em 6%;
 }
 
 form {
-    width: 100%;
-    padding: 0 15px;
+    width: 90%;
     grid-gap: .8em;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -14,8 +13,8 @@ form {
 .content {
     width: 88%;
     display: grid;
-    grid-template-columns: 30% 1fr;
-    grid-gap: 1.5em;
+    grid-template-columns: 28% 1fr;
+    grid-gap: 3em;
 }
 
 .content-header {
@@ -40,7 +39,7 @@ form {
 .img {
     width: 100%;
     display: block;
-    padding: 5px 0;
+    padding: 3px 0;
 }
 
 .label {
@@ -65,7 +64,10 @@ form {
     border: 1px solid gray;
     border-radius: 2px;
     padding: 5px;
-    min-height: 18px;
+    min-height: 30px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 .check-row {

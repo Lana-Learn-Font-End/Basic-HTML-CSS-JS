@@ -22,7 +22,7 @@
         </div>
         <div>
             <div class="content-header">Thêm danh mục</div>
-            <form action="" class="content-body">
+            <form action="" class="content-body" id="add-content">
                 <div>
                     <label class="label" for="name"> Tên danh mục <span class="red">(*)</span></label>
                     <input class="input" id="name" name="name" type="text">
@@ -43,7 +43,10 @@
                     <label class="label" for="parent"> Chọn danh mục cha</label>
                     <select class="input" id="parent" name="parent">
                         <option disabled selected value="">--Chọn danh mục cha--</option>
-                        <option value=""></option>
+                        <option value="home">TRANG CHỦ</option>
+                        <option value="product">SẢN PHẨM</option>
+                        <option value="info">TIN TỨC</option>
+                        <option value="contact">LIÊN HỆ</option>
                     </select>
                 </div>
                 <div>
@@ -51,7 +54,7 @@
                     <div class="check-row">
                         <div>
                             <label class="check-label" for="status-show">Ẩn </label>
-                            <input checked id="status-show" name="status" type="radio">
+                            <input id="status-show" name="status" type="radio">
                         </div>
                         <div>
                             <label class="check-label" for="status-hide">Hiện </label>
@@ -68,5 +71,7 @@
         </div>
     </div>
 </section>
+<script src="../validate-lib.js"></script>
+<script src="validator.js"></script>
 </body>
 </html>
