@@ -1,0 +1,13 @@
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: .8em;
+}
+
+.form-container {
+
+}
+
+.form-header {
+
+}
