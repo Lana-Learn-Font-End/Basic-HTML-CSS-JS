@@ -69,6 +69,7 @@ form {
     min-height: 30px;
     border-radius: 2px;
     display: block;
+    min-width: 200px;
 }
 
 .btn-row {

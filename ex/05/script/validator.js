@@ -11,8 +11,8 @@ function isMoreThan20Char(str) {
 }
 
 function isContainsBothNumberAndAlphabet(str) {
-    //match string that contain number or alphabet or even unicode
-    return !str.match(/[0-9\u00C0-\u024F\u1E00-\u1EFFa-zA-Z]/);
+    //match string that contain number and alphabet or even unicode
+    return str.match(/\d/) && str.match(/[\u00C0-\u024F\u1E00-\u1EFFa-zA-Z]/)
 }
 
 function isValidDate(str) {
@@ -23,7 +23,7 @@ function isValidDate(str) {
         const month = Number(dateValue[1]);
         const date = Number(dateValue[0]);
 
-        if (isInRange(month, 1, 30) && isInRange(date, 1, 31)) {
+        if (isInRange(month, 1, 30)) {
             switch (month) {
                 case 2:
                     return isLeap(year) ?
