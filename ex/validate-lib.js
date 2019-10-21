@@ -10,6 +10,10 @@ class FormValidator {
         this.element.addEventListener(type, listener);
     }
 
+    allField() {
+        return this._fields;
+    }
+
     fields(selector) {
         const fieldElements = Array.from(this.element.querySelectorAll(selector));
         return this._fields.filter(field => fieldElements.includes(field.element));
@@ -123,6 +127,40 @@ class FieldValidator {
     }
 }
 
+function renderAllErrorMessage(formValidator) {
+    formValidator
+        .allField()
+        .forEach(field => toggleErrorMessage(field));
+}
+
+function toggleErrorMessage(fieldValidator) {
+    const errorElement = getErrorElement(fieldValidator);
+    if (fieldValidator.hasError()) {
+        errorElement.dataset.validate = "invalid";
+        errorElement.innerText = fieldValidator.message;
+        return;
+    }
+    errorElement.dataset.validate = "valid";
+    errorElement.innerText = "";
+}
+
+function getErrorElement(fieldValidator) {
+    const errorId = fieldValidator.element.id;
+    const exitedErrorElement = element(`[data-validate-for=${errorId}]`);
+    if (!exitedErrorElement) {
+        return createErrorElement(fieldValidator);
+    }
+    return exitedErrorElement;
+}
+
+function createErrorElement(fieldValidator) {
+    const element = fieldValidator.element;
+    const errorElement = document.createElement("SMALL");
+    errorElement.dataset.validate = "";
+    errorElement.dataset.validateFor = element.id;
+    element.parentNode.insertBefore(errorElement, element.nextSibling);
+    return errorElement;
+}
 
 function element(selector) {
     return document.querySelector(selector);

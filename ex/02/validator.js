@@ -15,7 +15,7 @@ form.on("submit", (event) => {
     event.preventDefault();
     form.validate();
     if (form.hasError()) {
-        alert(form.getErrorMessages()[0]);
+        renderAllErrorMessage(form);
     } else {
         form.element.submit();
     }
@@ -30,7 +30,6 @@ function notBlank(str) {
 }
 
 function isLink(str) {
-    //TODO: match unicode character in str
     return str.trim().match(/\s/);
 }
 

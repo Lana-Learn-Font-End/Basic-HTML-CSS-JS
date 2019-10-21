@@ -76,3 +76,7 @@ form {
     display: flex;
     justify-content: space-between;
 }
+
+small[data-validate-for][data-validate=invalid] {
+    color: red;
+}
