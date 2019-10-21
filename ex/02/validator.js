@@ -22,6 +22,7 @@ form.on("submit", (event) => {
 });
 form.on("reset", () => {
     form.resetValidateState();
+    renderAllErrorMessage(form);
 });
 
 
