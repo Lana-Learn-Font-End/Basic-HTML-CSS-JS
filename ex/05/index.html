@@ -8,11 +8,52 @@
 </head>
 <body>
 <header>Welcome to Bachkhoa-Aptech</header>
-<div class="form-container">
-    <div class="form-header"></div>
-    <hr>
-    <form action="" class="form-container"></form>
-</div>
+<section>
+    <div class="form-container">
+        <div class="form-header">
+            Chương trình thư điện tử
+        </div>
+        <hr>
+        <form action="" class="grid-2-cols form">
+            <label class="label" for="from-person">Người Gửi</label>
+            <input class="input" id="from-person" type="text">
+
+            <label class="label" for="to-person">Người Nhận</label>
+            <input class="input" id="to-person" type="text">
+
+            <label for="mail-header">Tiêu Đề Thư</label>
+            <input class="input" id="mail-header" type="text">
+
+            <label for="mail-content">Nội Dung Thư</label>
+            <textarea id="mail-content"></textarea>
+
+            <label for="date">Ngày Giải Quyết</label>
+            <input class="input" id="date" type="text">
+            <label for="level">Cấp độ</label>
+            <select class="input" id="level"></select>
+            <label>Gửi bộ phận</label>
+            <div>
+                <input id="dao-tao" name="to" type="radio"><label for="dao-tao">P.Đào Tạo</label>
+                <input id="cham-soc" name="to" type="radio"><label for="cham-soc">P.Chăm sóc học viên</label>
+            </div>
+            <div class="btn-row">
+                <button type="reset">Làm lại</button>
+                <button type="submit">Gửi ngay</button>
+            </div>
+        </form>
+    </div>
+    <div class="menu-container">
+        <img alt="logo" class="menu-header" src="images/logo.png">
+        <div class="menu">
+            <ul>
+                <li><a href="">Trang chủ</a></li>
+                <li><a href="">Tin tức</a></li>
+                <li><a href="">Về BKAP</a></li>
+                <li><a href="">Liên hệ</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
 <script src="../validate-lib.js"></script>
 <script src="validator.js"></script>
 </body>

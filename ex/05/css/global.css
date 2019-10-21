@@ -4,6 +4,7 @@
 }
 
 body {
+    background: #B0BEC5;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -15,4 +16,12 @@ header {
     font-size: 28px;
     background: green;
     padding-bottom: 8px;
+}
+
+section {
+    padding: 1.8em 1em 0 1em;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 22%;
+    grid-gap: 5.4em;
 }
