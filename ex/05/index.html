@@ -14,7 +14,7 @@
             Chương trình thư điện tử
         </div>
         <hr>
-        <form action="" class="grid-2-cols form">
+        <form action="" class="grid-2-cols form" id="form">
             <label class="label" for="from-person">Người Gửi</label>
             <div><input class="input" id="from-person" type="text"></div>
 
@@ -25,10 +25,10 @@
             <div><input class="input" id="mail-header" type="text"></div>
 
             <label class="label" for="mail-content">Nội Dung Thư</label>
-            <textarea class="input" id="mail-content" rows="5"></textarea>
+            <div><textarea class="input" id="mail-content" rows="5"></textarea></div>
 
             <label class="label" for="date">Ngày Giải Quyết</label>
-            <div><input class="input" id="date" placeholder="mm/dd/yy" type="text"></div>
+            <div><input class="input" id="date" placeholder="dd/mm/yyyy" type="text"></div>
 
             <label class="label" for="level">Cấp độ</label>
             <div>
@@ -67,6 +67,7 @@
     </div>
 </section>
 <script src="../validate-lib.js"></script>
-<script src="validator.js"></script>
+<script src="script/validator.js"></script>
+<script src="script/script.js"></script>
 </body>
 </html>
