@@ -146,7 +146,8 @@ function toggleErrorMessage(fieldValidator) {
 
 function getErrorElement(fieldValidator) {
     const errorId = fieldValidator.element.id;
-    const exitedErrorElement = element(`[data-validate-for=${errorId}]`);
+    const exitedErrorElement =
+        document.querySelector(`[data-validate-for=${errorId}]`);
     if (!exitedErrorElement) {
         return createErrorElement(fieldValidator);
     }
