@@ -4,16 +4,28 @@
     grid-gap: .8em;
 }
 
-.form-container {
+form {
+    margin: 15px 0;
+    align-self: center;
+}
 
+.content {
+    margin-right: 5.4em;
+    padding: 15px;
+    height: fit-content;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    background: #F5F5F5;
+    border-radius: 5px;
 }
 
 .form-header {
-
-}
-
-.menu-container {
-
+    text-align: center;
+    font-size: 26px;
+    margin: 5px;
 }
 
 .menu-header {
@@ -38,8 +50,13 @@
     display: inline-block;
 }
 
-.btn-row {
-    grid-column: 2;
+.label {
+    padding-top: 3px;
+    font-weight: bolder;
+}
+
+.check-label {
+    padding: 3px;
 }
 
 .input {
@@ -49,6 +66,18 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     padding: 3px 5px;
-    height: 28px;
+    min-height: 30px;
     border-radius: 2px;
+}
+
+.btn-row {
+    grid-column: 2;
+}
+
+.button {
+    background: #FFB74D;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 16px;
+    color: white;
 }

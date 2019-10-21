@@ -9,40 +9,52 @@
 <body>
 <header>Welcome to Bachkhoa-Aptech</header>
 <section>
-    <div class="form-container">
+    <div class="form-container content">
         <div class="form-header">
             Chương trình thư điện tử
         </div>
         <hr>
         <form action="" class="grid-2-cols form">
             <label class="label" for="from-person">Người Gửi</label>
-            <input class="input" id="from-person" type="text">
+            <div><input class="input" id="from-person" type="text"></div>
 
             <label class="label" for="to-person">Người Nhận</label>
-            <input class="input" id="to-person" type="text">
+            <div><input class="input" id="to-person" type="text"></div>
 
-            <label for="mail-header">Tiêu Đề Thư</label>
-            <input class="input" id="mail-header" type="text">
+            <label class="label" for="mail-header">Tiêu Đề Thư</label>
+            <div><input class="input" id="mail-header" type="text"></div>
 
-            <label for="mail-content">Nội Dung Thư</label>
-            <textarea id="mail-content"></textarea>
+            <label class="label" for="mail-content">Nội Dung Thư</label>
+            <textarea class="input" id="mail-content" rows="5"></textarea>
 
-            <label for="date">Ngày Giải Quyết</label>
-            <input class="input" id="date" type="text">
-            <label for="level">Cấp độ</label>
-            <select class="input" id="level"></select>
-            <label>Gửi bộ phận</label>
+            <label class="label" for="date">Ngày Giải Quyết</label>
+            <div><input class="input" id="date" placeholder="mm/dd/yy" type="text"></div>
+
+            <label class="label" for="level">Cấp độ</label>
             <div>
-                <input id="dao-tao" name="to" type="radio"><label for="dao-tao">P.Đào Tạo</label>
-                <input id="cham-soc" name="to" type="radio"><label for="cham-soc">P.Chăm sóc học viên</label>
+                <select class="input" id="level">
+                    <option disabled selected value="">--Chọn cấp độ ưu tiên</option>
+                    <option value="">Cấp 1</option>
+                    <option value="">Cấp 2</option>
+                    <option value="">Cấp 3</option>
+                </select>
             </div>
+
+            <label class="label">Gửi bộ phận</label>
+            <div>
+                <input checked id="dao-tao" name="to" type="radio">
+                <label class="check-label" for="dao-tao">P.Đào Tạo</label>
+                <input id="cham-soc" name="to" type="radio">
+                <label class="check-label" for="cham-soc">P.Chăm sóc học viên</label>
+            </div>
+
             <div class="btn-row">
-                <button type="reset">Làm lại</button>
-                <button type="submit">Gửi ngay</button>
+                <button class="button" type="reset">Làm lại</button>
+                <button class="button" type="submit">Gửi ngay</button>
             </div>
         </form>
     </div>
-    <div class="menu-container">
+    <div>
         <img alt="logo" class="menu-header" src="images/logo.png">
         <div class="menu">
             <ul>
