@@ -30,7 +30,8 @@ function notBlank(str) {
 }
 
 function isLink(str) {
-    return str.trim().match(/\s/);
+    // match space or accented unicode
+    return !str.trim().match(/[\u00C0-\u024F\u1E00-\u1EFF\s]/);
 }
 
 
